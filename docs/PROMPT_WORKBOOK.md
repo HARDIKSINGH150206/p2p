@@ -23,5 +23,11 @@
 - **Produced:** 4 docs in `docs/`; root `CLAUDE.md` created (original content + Project State + Docs Index; the two placeholders filled with pointers); corrected two figures in DATA_NOTES (65% / 95%). All features marked Planned since no app code exists yet; Concept A assumed as the pick.
 - **TODO (team):** confirm Concept A; edit docs as needed.
 
+### Ideation loop (prompts/ideator.md ↔ prompts/evaluator.md), threshold >= 8.5
+- **Round 1 (~11:55 IST):** ideator v1 → evaluator **7.2**. Top feedback: hook contradicted the data (B05 has no solar; wrong building/dates), classifier only P1, scope too big. Changed in v2: rebuilt hook from verified events, classifier P0-lite, cut lines. TODO (team):
+- **Round 2:** v2 → **8.0**. Top feedback: headline cards retrospective, Outage Drill error leaked the daily total, tasks optimistic. Changed in v3: forward-looking B07 19 Sep card, leak-free Drill with naive baselines, hardcoded alias/note tables, named 30+ constraints. TODO (team):
+- **Round 3 (~12:10 IST):** v3 → **8.3** (not approved; best version). Top feedback: forecast near-persistence, incentive loop unmeasured. TODO (team):
+- **Strategy:** we used two separate fresh Claude subagents as a generator–critic pair: an ideator prompt (product-manager role, hard constraints, fixed output format) and an independent evaluator prompt (judge role, rubric-weighted score, critical-failure checks, handoff block). The evaluator never saw the ideator's reasoning, and its handoff block was fed back verbatim, so each round fixed the weakest criterion instead of adding scope. Evaluator checked claims against the real data, which caught fabricated-looking details in v1.
+
 ## 3. Iterations
 _None yet._

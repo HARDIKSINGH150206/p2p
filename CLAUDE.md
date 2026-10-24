@@ -1,6 +1,8 @@
 # CLAUDE.md — Srujana 2026 "Prompt to Product: Prompt for the Planet"
 
 ## Project State
+- **Chosen product (idea locked): CircuGrid Brief** — an offline-proof campus grid that forecasts spikes, names the cause, ranks the fix. (Ideation v3, evaluator score 8.3/10, see docs/ideation/FINAL.md.)
+- **Status: idea locked, awaiting GO.** (Older bullets below describing Concept A are superseded by this.)
 - Product: Predictive Circular-Resource Grid (Concept A, assumed picked) — campus energy/water/waste fusion, bin classifier, 6–12 h forecast, root-cause actions, impact + leaderboard.
 - Stack: Python, Streamlit, pandas, plotly, scikit-learn; optional Claude API via `.env` with offline fallback.
 - Key files: `data/*.xlsx` (raw), `docs/DATA_NOTES.md`, `docs/PRD.md`, `app.py` (not yet created).

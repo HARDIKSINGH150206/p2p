@@ -80,6 +80,14 @@ def forecast():
     return _serve("forecast")
 
 
+@app.get("/api/forecast/{bid}")
+def forecast_series(bid: str, horizon: int = 6):
+    from .forecast import series
+    if bid not in {f"B0{i}" for i in range(1, 9)} or horizon not in (6, 12):
+        raise HTTPException(400, "building must be B01..B08 and horizon 6 or 12")
+    return series(bid, horizon)
+
+
 @app.get("/api/impact")
 def impact():
     return _serve("impact")

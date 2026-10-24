@@ -6,28 +6,47 @@ VIEWS.forEach(([k, t, i]) => { const b = document.createElement('button'); b.id 
 function show(k) { VIEWS.forEach(([x]) => { $('v-' + x).classList.toggle('on', x === k); $('n_' + x).classList.toggle('on', x === k); }); if (k === 'grid') measure(); if (k === 'overview' && window.drawOverview) window.drawOverview(); scrollTo(0, 0); history.replaceState(null, '', '#' + k); }
 
 /* ---------- views ---------- */
+let briefData = null, briefB = 'all', briefC = 'all';
 function renderBrief(r) {
-  if (r.error) return errBox('briefBody', r.error);
+  if (r) briefData = r; r = briefData; if (!r || r.error) return errBox('briefBody', r ? r.error : 'no data');
   const conf = { high: 'ws-chip-ok', medium: 'ws-chip-warn', low: 'ws-chip-bad', none: 'ws-chip-bad' };
-  $('briefBody').innerHTML = `<div class="row">${chip('ws-chip-ok', r.attribution_counts.attributed + ' attributed')}${chip('', r.attribution_counts.unexplained + ' unexplained')}${chip('', r.n_episodes + ' episodes')}</div>` +
-    r.cards.map((c) => `<div class="card"><h3>${c.title}</h3><div class="row" style="margin:6px 0">${chip(conf[c.confidence], c.confidence + ' confidence')}${chip('', c.cause.replace(/_/g, ' '))}<span class="meta">${c.date_range[0]} → ${c.date_range[1]}</span></div>
-      <div class="ev">Evidence: ${esc(c.evidence)}</div><div class="act"><b>Action:</b> ${c.action}</div>
+  const cards = r.cards.filter((c) => (briefB === 'all' || c.building_id === briefB) && (briefC === 'all' || c.confidence === briefC));
+  const bs = ['all', ...new Set(r.cards.map((c) => c.building_id))].sort();
+  $('briefBody').innerHTML = `<div class="row">${chip('ws-chip-ok', r.attribution_counts.attributed + ' attributed')}${chip('', r.attribution_counts.unexplained + ' unexplained')}${chip('', r.n_episodes + ' episodes')}
+    <span style="margin-left:auto"></span>Building <select id="bfB">${bs.map((b) => `<option ${b === briefB ? 'selected' : ''} value="${b}">${b === 'all' ? 'All' : b}</option>`).join('')}</select>
+    Confidence <select id="bfC">${['all', 'high', 'medium', 'low'].map((b) => `<option ${b === briefC ? 'selected' : ''} value="${b}">${b === 'all' ? 'All' : b}</option>`).join('')}</select></div>` +
+    (cards.length ? cards.map((c) => `<div class="card"><h3>${esc(c.title)}</h3><div class="row" style="margin:6px 0">${chip(conf[c.confidence], c.confidence + ' confidence')}${chip('', esc(c.cause.replace(/_/g, ' ')))}<span class="meta">${c.date_range[0]} → ${c.date_range[1]}</span><button class="lp-btn lp-btn-ghost lp-btn-sm" style="margin-left:auto" onclick="openBuilding('${c.building_id}')">Open ${c.building_id}</button></div>
+      <div class="ev">Evidence: ${esc(c.evidence)}</div><div class="act"><b>Action:</b> ${esc(c.action)}</div>
       <p class="meta">${c.kwh != null ? f(c.kwh) + ' kWh · Rs ' + f(c.rs) + ' · ' + f(c.co2_kg) + ' kg CO2 ' : ''}${c.kg != null ? f(c.kg) + ' kg ' : ''}${c.litres != null ? f(c.litres) + ' L' : ''}</p>
-      ${c.forecast_check ? `<p class="meta">forecast check (6 h, that day): ${Object.entries(c.forecast_check).map(([m, v]) => m.replace('naive_same_hour_', 'naive ') + ' WAPE ' + v.wape).join(' · ')}</p>` : ''}</div>`).join('');
+      ${c.forecast_check ? `<p class="meta">forecast check (6 h, that day): ${Object.entries(c.forecast_check).map(([m, v]) => m.replace('naive_same_hour_', 'naive ') + ' WAPE ' + v.wape).join(' · ')}</p>` : ''}</div>`).join('') : '<div class="note">No episodes match these filters.</div>');
+  $('bfB').onchange = (e) => { briefB = e.target.value; renderBrief(); }; $('bfC').onchange = (e) => { briefC = e.target.value; renderBrief(); };
 }
+const FX = { b: 'B07', h: 6, w: 'all' };
+const FWIN = { all: ['2026-09-18', '2026-10-18', 'All test days (18 Sep to 17 Oct)'], alumni: ['2026-09-19', '2026-09-20', 'Alumni meet, Sat 19 Sep'], exam: ['2026-09-28', '2026-10-10', 'Mid-sem exam stretch, 28 Sep to 9 Oct'] };
 function renderForecast(r) {
-  if (r.error) return errBox('fcBody', r.error);
-  const m = r.metrics, s = r.b07_19sep, rows = {};
-  m.filter((x) => x.window === 'all_test').forEach((x) => ((rows[x.building_id + '|' + x.horizon_h] ??= {})[x.model] = x.wape));
-  const al = m.filter((x) => x.window === 'alumni_19sep' && x.building_id === 'B07' && x.horizon_h === 6);
-  $('fcBody').innerHTML = `<div class="note">Honest read: on the B07 alumni-meet day the yesterday baseline beat ridge. The model picks up the ramp, and the residual names the surge; it does not predict a one-off event. Fit time: ridge ${r.fit_time_s.ridge}s vs gradient boosting ${r.fit_time_s.hgb}s.</div>
-    <h3 style="font-weight:500">B07 Food Court · Alumni meet, Sat 19 Sep (6 h ahead)</h3><canvas class="chart" id="fcC" width="960" height="280"></canvas>
-    <div class="legend">${legend([['#f2efe9', 'actual'], ['#34d399', 'ridge'], ['#f87171', 'naive last week'], ['#0099ff', 'naive yesterday']])}</div>
-    <p class="meta">${al.map((x) => x.model.replace('naive_same_hour_', 'naive ') + ' WAPE ' + x.wape).join(' · ')}</p>
-    <h3 style="font-weight:500;margin-top:24px">WAPE per building, all test days (lower is better; best in green)</h3>
-    <table><tr><th>building · horizon</th><th>ridge</th><th>last week</th><th>yesterday</th></tr>${Object.entries(rows).map(([k, v]) => { const best = Math.min(v.ridge, v.naive_same_hour_last_week, v.naive_same_hour_yesterday); const c = (x) => (x === best ? ' style="color:var(--ok)"' : ''); return `<tr><td>${k.replace('|', ' · ')} h</td><td${c(v.ridge)}>${v.ridge}</td><td${c(v.naive_same_hour_last_week)}>${v.naive_same_hour_last_week}</td><td${c(v.naive_same_hour_yesterday)}>${v.naive_same_hour_yesterday}</td></tr>`; }).join('')}</table>`;
-  line($('fcC'), [s.actual, s.forecast, s.naive_week, s.naive_day], ['#f2efe9', '#34d399', '#f87171', '#0099ff']);
+  if (r) D.forecast = r; r = D.forecast; if (!r || r.error) return errBox('fcBody', r ? r.error : 'no data');
+  const opt = (arr, cur) => arr.map(([v, t]) => `<option ${v == cur ? 'selected' : ''} value="${v}">${t}</option>`).join('');
+  $('fcBody').innerHTML = `<div class="row">Building <select id="fxB">${opt(['B01', 'B02', 'B03', 'B04', 'B05', 'B06', 'B07', 'B08'].map((b) => [b, b]), FX.b)}</select>
+    Horizon <div class="seg" id="fxH"><button data-h="6" class="${FX.h === 6 ? 'on' : ''}">6 h</button><button data-h="12" class="${FX.h === 12 ? 'on' : ''}">12 h</button></div>
+    Window <select id="fxW">${opt(Object.entries(FWIN).map(([k, v]) => [k, v[2]]), FX.w)}</select></div>
+    <canvas class="chart" id="fcC" width="1000" height="300"></canvas><div class="legend">${legend([['#f2efe9', 'actual'], ['#34d399', 'ridge'], ['#f87171', 'naive last week'], ['#0099ff', 'naive yesterday']])}</div><div id="fxM"></div>
+    <div class="note">Honest read: the model is scored on days it never saw. On the B07 alumni-meet day the yesterday baseline beat ridge: the model picks up the ramp and the residual names the surge, it does not predict a one-off event. Fit time: ridge ${r.fit_time_s.ridge}s vs gradient boosting ${r.fit_time_s.hgb}s.</div>
+    <h3 style="font-weight:500;margin-top:24px">WAPE per building, all test days (lower is better; best in green)</h3><div id="fxT"></div>`;
+  $('fxB').onchange = (e) => { FX.b = e.target.value; fxLoad(); }; $('fxW').onchange = (e) => { FX.w = e.target.value; fxLoad(); }; $('fxH').onclick = (e) => { const b = e.target.closest('button'); if (b) { FX.h = +b.dataset.h; renderForecast(); } };
+  const rows = {}; r.metrics.filter((x) => x.window === 'all_test').forEach((x) => ((rows[x.building_id + '|' + x.horizon_h] ??= {})[x.model] = x.wape));
+  $('fxT').innerHTML = `<table><tr><th>building · horizon</th><th>ridge</th><th>last week</th><th>yesterday</th></tr>${Object.entries(rows).map(([k, v]) => { const best = Math.min(v.ridge, v.naive_same_hour_last_week, v.naive_same_hour_yesterday); const c = (x) => (x === best ? ' style="color:var(--ok)"' : ''); return `<tr${k.startsWith(FX.b) ? ' class="best"' : ''}><td>${k.replace('|', ' · ')} h</td><td${c(v.ridge)}>${v.ridge}</td><td${c(v.naive_same_hour_last_week)}>${v.naive_same_hour_last_week}</td><td${c(v.naive_same_hour_yesterday)}>${v.naive_same_hour_yesterday}</td></tr>`; }).join('')}</table>`;
+  fxLoad();
 }
+async function fxLoad() {
+  const cv = $('fcC'); if (!cv) return; $('fxM').innerHTML = '<p class="empty">Loading series…</p>';
+  const s = await J(`/api/forecast/${FX.b}?horizon=${FX.h}`); if (s.error || s.detail) return ($('fxM').innerHTML = `<div class="note err">${esc(s.error || s.detail)}</div>`);
+  const [a, b] = FWIN[FX.w], idx = s.timestamps.map((t, i) => (t >= a && t < b ? i : -1)).filter((i) => i >= 0), pick = (k) => idx.map((i) => s[k][i]);
+  if (!idx.length) return ($('fxM').innerHTML = '<div class="note">No hours in that window.</div>');
+  line(cv, [pick('actual'), pick('ridge'), pick('naive_week'), pick('naive_day')], ['#f2efe9', '#34d399', '#f87171', '#0099ff']);
+  const m = D.forecast.metrics.filter((x) => x.building_id === FX.b && x.horizon_h === FX.h && x.window === (FX.w === 'all' ? 'all_test' : FX.w === 'alumni' ? 'alumni_19sep' : 'exam_28sep_9oct'));
+  $('fxM').innerHTML = `<div class="kpis">${m.map((x) => `<div class="kpi"><b>${x.wape}</b><span>${x.model.replace('naive_same_hour_', 'naive ')} WAPE · MAE ${x.mae} kWh · n=${x.n}</span></div>`).join('')}</div>`;
+}
+
 let lastDrill;
 ['B01', 'B02', 'B03', 'B04', 'B05', 'B06', 'B07', 'B08'].forEach((b) => { const o = document.createElement('option'); o.value = o.textContent = b; if (b === 'B04') o.selected = true; $('dB').append(o); });
 $('dGo').onclick = async () => {

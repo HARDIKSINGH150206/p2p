@@ -97,6 +97,19 @@ def run_forecast(include_hgb_timing=True):
             "split": {"train": "target time < 2026-09-18", "test": "2026-09-18 .. 2026-10-17"}}
 
 
+def series(bid, horizon=6):
+    """Test-period hourly series for one building: actual vs ridge vs the two naive baselines."""
+    h, _, _ = load_processed()
+    X = _frame(h, bid, horizon)
+    tr, te = X[X.target_time < TEST_START], X[X.target_time >= TEST_START]
+    m = make_pipeline(StandardScaler(), Ridge(alpha=10.0)).fit(tr[FEATURES], tr.y)
+    te = te.assign(ridge=m.predict(te[FEATURES]))
+    return {"building_id": bid, "horizon_h": horizon, "timestamps": [str(t)[:16] for t in te.target_time],
+            "actual": [round(float(v), 2) for v in te.y], "ridge": [round(float(v), 2) for v in te.ridge],
+            "naive_week": [round(float(v), 2) for v in te.lag_week], "naive_day": [round(float(v), 2) for v in te.lag_day],
+            "observed": [bool(v) for v in te.observed]}
+
+
 if __name__ == "__main__":
     r = run_forecast()
     df = pd.DataFrame(r["metrics"])

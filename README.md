@@ -14,7 +14,8 @@ Srujana 2026 "Prompt to Product: Prompt for the Planet" — problem: *Predictive
 ```
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-streamlit run app.py
+python -m src.pipeline      # build data/processed/
+uvicorn src.api:app --reload   # once phase 4 is merged
 ```
 Optional: put `ANTHROPIC_API_KEY` in `.env` for LLM-written brief text. Without it the app uses regex/template fallbacks.
 
@@ -22,7 +23,7 @@ Optional: put `ANTHROPIC_API_KEY` in `.env` for LLM-written brief text. Without 
 Raw files live in `data/` (7 xlsx, 20 Jun–17 Oct 2026, 8 buildings, synthetic). Never edited; cleaned outputs go to `data/processed/`. Notes: `docs/DATA_NOTES.md`.
 
 ## Docs
-[PRD](docs/PRD.md) · [Phases](docs/PHASES.md) · [Development](docs/DEVELOPMENT.md) · [Architecture](docs/ARCHITECTURE_AND_DATAFLOW.md) · [Problem & novelty](docs/PROBLEM_AND_NOVELTY.md) · [Ideation result](docs/ideation/FINAL.md) · [Prompt workbook](docs/PROMPT_WORKBOOK.md)
+[Team workflow](docs/TEAM_WORKFLOW.md) · [Contracts](docs/CONTRACTS.md) · [PRD](docs/PRD.md) · [Phases](docs/PHASES.md) · [Development](docs/DEVELOPMENT.md) · [Architecture](docs/ARCHITECTURE_AND_DATAFLOW.md) · [Problem & novelty](docs/PROBLEM_AND_NOVELTY.md) · [Ideation result](docs/ideation/FINAL.md) · [Prompt workbook](docs/PROMPT_WORKBOOK.md)
 
 ## Team
-TODO (team): names.
+Hardik (ML/backend: forecast, attribution, outage drill, demo) · Jhashank (classifier, impact, API, frontend). Split and branching: docs/TEAM_WORKFLOW.md.

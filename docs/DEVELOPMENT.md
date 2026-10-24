@@ -5,7 +5,8 @@ Last updated: 12:15 IST
 ## Tech stack
 | Layer | Tool | Why |
 |---|---|---|
-| UI | Streamlit | One app, fast demo |
+| API | FastAPI + uvicorn | JSON API shared by rough and final frontend |
+| UI | plain HTML/JS (final UI later) | Rough page now, polish after |
 | Data | pandas, openpyxl | xlsx inputs |
 | Charts | plotly | Interactive |
 | ML | scikit-learn (Ridge, tree/RandomForest, optional HistGradientBoosting timing) | Small CPU models; edge-sized |
@@ -30,7 +31,8 @@ requirements.txt         pinned deps
 ```
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-streamlit run app.py     # app.py not written yet
+python -m src.pipeline
+uvicorn src.api:app --reload   # after phase 4
 ```
 
 ## Environment variables

@@ -3,14 +3,15 @@
 ## Project State
 - **Chosen product (idea locked): CircuGrid Brief** — an offline-proof campus grid that forecasts spikes, names the cause, ranks the fix. (Ideation v3, evaluator score 8.3/10, see docs/ideation/FINAL.md.)
 - **Status: idea locked, awaiting GO.** (Older bullets below describing Concept A are superseded by this.)
-- Stack: Python, Streamlit, pandas, plotly, scikit-learn; optional Claude API via `.env` with offline fallback.
+- Stack (changed): Python, FastAPI backend + plain HTML frontend (final UI later), pandas, scikit-learn; optional Claude API via `.env` with offline fallback.
+- Team: Hardik (phases 2A forecast/attribution, 2B drill, 7 demo) and Jhashank (3A classifier, 3B impact, 4 API + rough HTML, 6 final UI). Parallel, one branch per phase, merge by PR. See docs/TEAM_WORKFLOW.md, docs/PHASES.md, docs/CONTRACTS.md.
 - Key files: `data/*.xlsx` (raw), `docs/ideation/FINAL.md` (locked proposal), `docs/PRD.md`, `docs/PHASES.md`, planned `src/pipeline.py`, `src/models.py`, `src/insights.py`, `app.py`.
-- Built: data profiling, docs, README, requirements.txt, venv. No app code yet.
-- Next: phase 3a fusion/cleaning → 3b forecast → 3c Streamlit + Impact → 3d Drill → 3e classifier (see docs/PHASES.md).
+- Built: data profiling, docs, README, requirements.txt, src/pipeline.py (cleaning). No ML/API yet.
+- Next: phases 2A/2B (Hardik) and 3A/3B/4 (Jhashank) in parallel.
 - Blockers: none; build is already tight against the 1:15 freeze, use cut lines.
 
 ## Docs Index
-- [PRD](docs/PRD.md) · [Phases](docs/PHASES.md) · [Development](docs/DEVELOPMENT.md) · [Architecture & Dataflow](docs/ARCHITECTURE_AND_DATAFLOW.md) · [Problem & Novelty](docs/PROBLEM_AND_NOVELTY.md)
+- [Team workflow](docs/TEAM_WORKFLOW.md) · [Contracts](docs/CONTRACTS.md) · [PRD](docs/PRD.md) · [Phases](docs/PHASES.md) · [Development](docs/DEVELOPMENT.md) · [Architecture & Dataflow](docs/ARCHITECTURE_AND_DATAFLOW.md) · [Problem & Novelty](docs/PROBLEM_AND_NOVELTY.md)
 - [Data notes](docs/DATA_NOTES.md) · [Prompt workbook](docs/PROMPT_WORKBOOK.md) · [Ideation FINAL](docs/ideation/FINAL.md) · [Demo script](docs/DEMO_SCRIPT.md) (not yet written)
 
 **Rule:** After any feature change, update the Status column in PRD.md and the Project State section here.

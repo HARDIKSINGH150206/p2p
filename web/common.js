@@ -1,7 +1,8 @@
 /* CircuGrid Brief frontend. Wired-card graph ported from DigiVault-BFB custody-graph.tsx (vanilla JS). */
 const $ = (id) => document.getElementById(id);
 const f = (n, d = 0) => (n == null || isNaN(n) ? '–' : Number(n).toLocaleString(undefined, { maximumFractionDigits: d }));
-const J = (u, o) => fetch(u, o).then((r) => r.json());
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+const J = (u, o) => fetch(u, o).then((r) => r.json()).catch((e) => ({ error: 'Could not reach the server (' + (e && e.message ? e.message : e) + '). Is it running?' }));
 const D = {}; // api data
 const BRAND = '#0099ff';
 
@@ -168,3 +169,5 @@ function line(c, series, colors) {
 const legend = (items) => items.map(([c, t]) => `<span><i style="background:${c}"></i>${t}</span>`).join('');
 const chip = (c, t) => `<span class="ws-chip ${c}">${t}</span>`;
 
+
+function errBox(id, msg) { $(id).innerHTML = `<div class="note err"><b>Something went wrong.</b> ${esc(msg)} <button class="lp-btn lp-btn-outline lp-btn-sm" onclick="location.reload()" style="margin-left:8px">Retry</button></div>`; }

@@ -33,3 +33,10 @@ TODO (team): log prompts here (verbatim-ish, purpose, output).
 - **Produced:** web/index.html, landing.css, landing.js; split shared graph into common.js; moved workspace to /app (app.html, workspace.js); new GET /api/buildings. Pricing section replaced by an honest 'against the problem statement' status table and a labelled hardware-budget assumption; no invented users or testimonials.
 - **Checked:** headless Chrome desktop + 390px mobile, no console errors (one harmless ResizeObserver notice).
 - **TODO (team):**
+
+## Overview dashboard + hardening (~1:45 PM IST)
+- **Prompt:** "make the dashboard and harden the frontend ... should wow ... most professional ... visually appealing"
+- **Produced:** web/dashboard.js + dashboard.css (Overview): KPI cards with count-up and sparklines; stacked daily chart with metric tabs, building toggles, hover tooltip and real event pins (staff notes, calendar); building-day anomaly heatmap normalised by day type; Needs-attention panel; 8 building cards; waste-flow bars; accuracy ring; B07 forecast mini-chart. Backend: /api/timeseries, /api/health, background cache warm-up, gzip.
+- **Hardening:** HTML-escaping of dataset text, network-error boxes with Retry, skeleton loaders, reduced-motion support, focus outlines, responsive breakpoints, no content hidden by animation.
+- **Known gaps:** B04's share on cards still includes the flagged 6,234 kWh reading (chart shows it at median); not tested by hand-clicking.
+- **TODO (team):**

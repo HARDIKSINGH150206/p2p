@@ -2,16 +2,17 @@
 <html lang="en"><head><meta charset="utf-8"><title>CircuGrid Brief</title>
 <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a0a0a">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/static/style.css"></head>
+<link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/dashboard.css"></head>
 <body>
 <header class="ws-header">
-  <a class="ws-brand" href="/"><svg width="30" height="33" viewBox="0 0 30 33" fill="none" aria-hidden="true"><path d="M15 1.5 27 6v9.3c0 8.3-5.1 13.6-12 16.2C8.1 28.9 3 23.6 3 15.3V6L15 1.5Z" fill="#f2efe9"/><path d="M15 1.5 27 6v9.3c0 8.3-5.1 13.6-12 16.2V1.5Z" fill="#d9d5cc"/><path d="m10.2 15.6 3.3 3.3 6.4-6.8" stroke="#0a0a0a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <a class="ws-brand" href="/" aria-label="CircuGrid home"><svg width="30" height="33" viewBox="0 0 30 33" fill="none" aria-hidden="true"><path d="M15 1.5 27 6v9.3c0 8.3-5.1 13.6-12 16.2C8.1 28.9 3 23.6 3 15.3V6L15 1.5Z" fill="#f2efe9"/><path d="M15 1.5 27 6v9.3c0 8.3-5.1 13.6-12 16.2V1.5Z" fill="#d9d5cc"/><path d="m10.2 15.6 3.3 3.3 6.4-6.8" stroke="#0a0a0a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
   <div><div class="ws-brand-name">CircuGrid Brief</div><div class="ws-brand-sub">Predictive circular-resource grid</div></div></a>
   <div class="ws-user"><span class="ws-chip" id="statChip">loading data…</span><span class="ws-chip ws-chip-blue">8 buildings · 120 days</span></div>
 </header>
 <div class="ws-body">
   <aside class="ws-side"><p class="ws-side-label">Workspace</p><nav class="ws-nav" id="nav"></nav></aside>
   <main class="ws-main">
+    <section class="view" id="v-overview" aria-label="Overview"></section>
     <section class="view" id="v-grid">
       <div class="lp-g-section">
         <div class="lp-g-intro"><div><h2 class="lp-h2">Wire up the campus grid in a minute</h2>
@@ -39,5 +40,6 @@
   </main>
 </div>
 <script src="/static/common.js"></script>
+<script src="/static/dashboard.js"></script>
 <script src="/static/workspace.js"></script>
 </body></html>

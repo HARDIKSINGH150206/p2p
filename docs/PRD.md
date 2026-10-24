@@ -22,9 +22,9 @@ Facilities teams audit buildings by hand, so faults and surges are seen days lat
 |---|---|---|---|
 | Data profiling | Shape, nulls, quality issues, insights | P0 | ✅ Built (DATA_NOTES.md) |
 | Fusion + cleaning | Dedupe hourly, reindex to full grid, alias dict (37→8), unit fix, 13-note regex table, outlier/sensor-fault flag | P0 | 📋 Planned |
-| Brief: forecast + root cause + actions | Ridge 6 h (and 12 h) forecast vs 2 naive baselines, threshold anomalies, attribution (note → event → day type → weather → unexplained), ranked actions with evidence lines | P0 | ✅ Built on branch phase/forecast-attribution (src/forecast.py, src/insights.py; PR pending) |
+| Brief: forecast + root cause + actions | Ridge 6 h (and 12 h) forecast vs 2 naive baselines, threshold anomalies, attribution (note → event → day type → weather → unexplained), ranked actions with evidence lines | P0 | ✅ Built, merged (src/forecast.py, src/insights.py) |
 | Forward-looking card | B07 19 Sep held-out forecast vs actual, MAE/WAPE vs naive | P0 | 📋 Planned |
-| Outage Drill | Hide hours, impute from visible hours + day-type profile, replay, error vs baselines | P0 | ✅ Built on branch phase/outage-drill (src/drill.py; PR pending) |
+| Outage Drill | Hide hours, impute from visible hours + day-type profile, replay, error vs baselines | P0 | ✅ Built, merged (src/drill.py) |
 | Impact view | kWh, Rs, CO2, landfill, water from data; assumptions; labelled scenario replay | P0 | 📋 Planned |
 | Edge bin classifier panel | 6 classes, stratified held-out accuracy, ms/event, compost/recycle routing, predictions CSV | P0-lite | 📋 Planned |
 | Incentive ranking | Saved vs own baseline per occupant, "no behaviour change measured" | P1 (first cut) | 📋 Planned |

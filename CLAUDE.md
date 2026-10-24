@@ -6,8 +6,8 @@
 - Stack (changed): Python, FastAPI backend + plain HTML frontend (final UI later), pandas, scikit-learn; optional Claude API via `.env` with offline fallback.
 - Team: Hardik (phases 2A forecast/attribution, 2B drill, 7 demo) and Jhashank (3A classifier, 3B impact, 4 API + rough HTML, 6 final UI). Parallel, one branch per phase, merge by PR. See docs/TEAM_WORKFLOW.md, docs/PHASES.md, docs/CONTRACTS.md.
 - Key files: `data/*.xlsx` (raw), `docs/ideation/FINAL.md` (locked proposal), `docs/PRD.md`, `docs/PHASES.md`, planned `src/pipeline.py`, `src/models.py`, `src/insights.py`, `app.py`.
-- Built: data profiling, docs, README, requirements.txt, src/pipeline.py (cleaning). No ML/API yet.
-- Next: phases 2A/2B (Hardik) and 3A/3B/4 (Jhashank) in parallel.
+- Built + merged to main: data profiling, docs, src/pipeline.py, src/forecast.py, src/insights.py (Hardik 2A), src/drill.py (Hardik 2B), plus a teammate's `Data_cleaning/` EDA + cleaning (PR #1, NYN-05; separate from src/pipeline.py, not yet reconciled). Not built: classifier, impact, API, UI (Jhashank).
+- Next: Jhashank's 3A/3B/4 (classifier, impact, API + rough HTML); then phase 5 integration; Hardik: phase 7 demo script.
 - Blockers: none; build is already tight against the 1:15 freeze, use cut lines.
 
 ## Docs Index

@@ -1,0 +1,416 @@
+log_id,logged_at,date,building_id,building,logger_role,stream,value,unit,value_cleaned,unit_canonical,is_note,note
+L0001,2026-06-20 18:10,2026-06-20,B04,Eng Labs,lab_technician,water,1218.0,L,1218.0,L,False,
+L0002,2026-06-21 10:07,2026-06-21,B05,BH,warden,electricity,628.1,units,628.1,kWh,False,counted at end of day
+L0003,2026-06-21 15:48,2026-06-21,B03,B03,facility_staff,water,0.5,kL,500.0,L,False,evening reading
+L0004,2026-06-21 16:51,2026-06-21,B07,Food Court,kitchen_staff,water,5.6,kL,5600.0,L,False,approx
+L0005,2026-06-21 18:52,2026-06-21,B04,Engineering Labs & Innovation Centre,lab_technician,water,878.0,L,878.0,L,False,
+L0006,2026-06-22 07:48,2026-06-22,B03,Central Library,librarian,water,0.8,kL,800.0,L,False,
+L0007,2026-06-22 08:25,2026-06-22,B07,Food Court,mess_supervisor,waste,74.0,kg,74.0,kg,False,counted at end of day
+L0008,2026-06-22 10:46,2026-06-22,B01,block A,facility_staff,water,3.3,kL,3300.0,L,False,daily total
+L0009,2026-06-23 13:34,2026-06-23,B03,central lib,librarian,water,872.0,L,872.0,L,False,counted at end of day
+L0010,2026-06-23 14:27,2026-06-23,B03,central lib,librarian,water,872.0,L,872.0,L,False,counted at end of day
+L0011,2026-06-23 14:31,2026-06-23,B05,B05,warden,water,174674.0,L,174674.0,L,False,as per meter
+L0012,2026-06-24 10:30,2026-06-24,B02,Academic Block B,student_volunteer,water,3006.0,L,3006.0,L,False,approx
+L0013,2026-06-24 15:01,2026-06-24,B08,admin block,office_staff,water,2.3,kL,2300.0,L,False,
+L0014,2026-06-24 19:29,2026-06-24,B08,B08,office_staff,water,2544.0,L,2544.0,L,False,
+L0015,2026-06-24 19:48,2026-06-24,B03,central lib,librarian,waste,3.0,kg,3.0,kg,False,as per meter
+L0016,2026-06-24 20:04,2026-06-24,B01,academic block a,facility_staff,electricity,372.7,kWh,372.7,kWh,False,evening reading
+L0017,2026-06-25 09:13,2026-06-25,B02,Academic Block B,student_volunteer,electricity,269.8,units,269.8,kWh,False,counted at end of day
+L0018,2026-06-25 10:41,2026-06-25,B01,academic block a,facility_staff,waste,150.0,kg,150.0,kg,False,
+L0019,2026-06-25 15:10,2026-06-25,B06,Girls hostle,hostel_supervisor,electricity,444.3,units,444.3,kWh,False,
+L0020,2026-06-25 16:41,2026-06-25,B04,B04,lab_technician,water,1051.0,L,1051.0,L,False,approx
+L0021,2026-06-26 07:45,2026-06-26,B07,FC,kitchen_staff,waste,66.0,kg,66.0,kg,False,
+L0022,2026-06-26 11:57,2026-06-26,B05,BH,warden,water,17090.0,L,17090.0,L,False,as per meter
+L0023,2026-06-26 14:34,2026-06-26,B06,Girls hostle,warden,water,15315.0,L,15315.0,L,False,approx
+L0024,2026-06-26 15:37,2026-06-26,B07,B07,kitchen_staff,water,6.0,kL,6000.0,L,False,daily total
+L0025,2026-06-26 16:44,2026-06-26,B07,B07,kitchen_staff,water,6.0,kL,6000.0,L,False,daily total
+L0026,2026-06-27 09:00,2026-06-27,B06,B06,hostel_supervisor,waste,43.0,kg,43.0,kg,False,
+L0027,2026-06-27 10:46,2026-06-27,B05,boys hostel,warden,waste,74.0,kg,74.0,kg,False,counted at end of day
+L0028,2026-06-27 14:25,2026-06-27,B01,block A,student_volunteer,water,2167.0,L,2167.0,L,False,evening reading
+L0029,2026-06-27 19:31,2026-06-27,B08,admin block,facility_staff,waste,2.0,bags,16.0,kg,False,approx
+L0030,2026-06-28 07:22,2026-06-28,B03,central lib,librarian,electricity,312.9,kWh,312.9,kWh,False,counted at end of day
+L0031,2026-06-28 12:05,2026-06-28,B05,B05,hostel_supervisor,water,23.2,kL,23200.0,L,False,
+L0032,2026-06-28 15:16,2026-06-28,B08,Admin,office_staff,electricity,255.7,kWh,255.7,kWh,False,as per meter
+L0033,2026-06-28 16:42,2026-06-28,B05,BH,hostel_supervisor,electricity,624.0,kWh,624.0,kWh,False,counted at end of day
+L0034,2026-06-28 17:02,2026-06-28,B07,food court,kitchen_staff,electricity,319.6,kWh,319.6,kWh,False,counted at end of day
+L0035,2026-06-28 20:15,2026-06-28,B08,Admin Block,facility_staff,electricity,219.6,kWh,219.6,kWh,False,as per meter
+L0036,2026-06-29 09:54,2026-06-29,B06,Girls hostle,warden,waste,602.0,kg,602.0,kg,False,as per meter
+L0037,2026-06-29 13:19,2026-06-29,B01,Academic Block A,student_volunteer,electricity,381.1,units,381.1,kWh,False,
+L0038,2026-06-29 13:21,2026-06-29,B02,Block B,student_volunteer,waste,1.0,bags,8.0,kg,False,
+L0039,2026-06-29 19:45,2026-06-29,B04,labs,facility_staff,waste,6.0,kg,6.0,kg,False,counted at end of day
+L0040,2026-06-29 20:53,2026-06-29,B07,B07,mess_supervisor,electricity,307.2,kWh,307.2,kWh,False,approx
+L0041,2026-06-30 09:35,2026-06-30,B02,B02,facility_staff,electricity,31.0,units,31.0,kWh,False,
+L0042,2026-06-30 19:10,2026-06-30,B08,admin block,office_staff,electricity,226.9,units,226.9,kWh,False,counted at end of day
+L0043,2026-07-01 13:02,2026-07-01,B08,Admin,facility_staff,waste,13.0,kg,13.0,kg,False,evening reading
+L0044,2026-07-01 19:37,2026-07-01,B03,central lib,librarian,water,568.0,L,568.0,L,False,
+L0045,2026-07-02 15:10,2026-07-02,B03,B03,facility_staff,electricity,330.8,kWh,330.8,kWh,False,counted at end of day
+L0046,2026-07-02 18:18,2026-07-02,B02,Block B,student_volunteer,water,2611.0,L,2611.0,L,False,evening reading
+L0047,2026-07-03 07:43,2026-07-03,B01,Academic Block A,facility_staff,waste,1.0,bags,8.0,kg,False,counted at end of day
+L0048,2026-07-03 10:10,2026-07-03,B04,labs,lab_technician,waste,1.0,bags,8.0,kg,False,as per meter
+L0049,2026-07-03 12:38,2026-07-03,B03,central lib,facility_staff,water,746.0,L,746.0,L,False,as per meter
+L0050,2026-07-03 17:28,2026-07-03,B03,central lib,facility_staff,waste,4.0,kg,4.0,kg,False,counted at end of day
+L0051,2026-07-03 20:06,2026-07-03,B05,BH,warden,waste,9.0,bags,72.0,kg,False,approx
+L0052,2026-07-04 08:39,2026-07-04,B01,block A,student_volunteer,electricity,335.2,kWh,335.2,kWh,False,
+L0053,2026-07-04 09:20,2026-07-04,B02,B02,student_volunteer,electricity,283.9,kWh,283.9,kWh,False,evening reading
+L0054,2026-07-04 16:13,2026-07-04,B04,labs,facility_staff,electricity,455.7,units,455.7,kWh,False,approx
+L0055,2026-07-05 07:50,2026-07-05,B08,Admin,office_staff,water,2.0,kL,2000.0,L,False,
+L0056,2026-07-05 17:26,2026-07-05,B07,B07,kitchen_staff,electricity,307.7,units,307.7,kWh,False,evening reading
+L0057,2026-07-06 07:20,2026-07-06,B05,Boys Hostel,hostel_supervisor,electricity,556.0,units,556.0,kWh,False,counted at end of day
+L0058,2026-07-06 08:42,2026-07-06,B04,B04,lab_technician,electricity,460.3,kWh,460.3,kWh,False,
+L0059,2026-07-06 13:06,2026-07-06,B07,Food Court,kitchen_staff,waste,111.0,kg,111.0,kg,False,daily total
+L0060,2026-07-06 15:14,2026-07-06,B01,Academic Block A,student_volunteer,water,2.0,kL,2000.0,L,False,counted at end of day
+L0061,2026-07-06 18:15,2026-07-06,B02,Acad Block B,student_volunteer,electricity,311.9,kWh,311.9,kWh,False,counted at end of day
+L0062,2026-07-06 19:18,2026-07-06,B01,block A,student_volunteer,waste,1.0,bags,8.0,kg,False,
+L0063,2026-07-07 14:01,2026-07-07,B07,Canteen,kitchen_staff,water,5474.0,L,5474.0,L,False,approx
+L0064,2026-07-07 15:20,2026-07-07,B08,B08,office_staff,electricity,241.5,kWh,241.5,kWh,False,daily total
+L0065,2026-07-07 17:42,2026-07-07,B07,FC,mess_supervisor,waste,85.0,kg,85.0,kg,False,as per meter
+L0066,2026-07-08 19:25,2026-07-08,B08,B08,office_staff,electricity,234.2,units,234.2,kWh,False,counted at end of day
+L0067,2026-07-09 07:42,2026-07-09,B03,central lib,librarian,electricity,279.3,kWh,279.3,kWh,False,evening reading
+L0068,2026-07-09 15:11,2026-07-09,B04,Engineering Labs & Innovation Centre,lab_technician,waste,4.0,kg,4.0,kg,False,counted at end of day
+L0069,2026-07-09 19:56,2026-07-09,B04,Engineering Labs & Innovation Centre,lab_technician,water,112.0,L,112.0,L,False,
+L0070,2026-07-10 07:52,2026-07-10,B03,Library,librarian,waste,2.0,kg,2.0,kg,False,evening reading
+L0071,2026-07-10 11:24,2026-07-10,B03,central lib,librarian,water,0.5,kL,500.0,L,False,approx
+L0072,2026-07-10 16:25,2026-07-10,B07,B07,kitchen_staff,water,6213.0,L,6213.0,L,False,counted at end of day
+L0073,2026-07-10 17:07,2026-07-10,B05,Boys Hostle,warden,waste,12.0,bags,96.0,kg,False,approx
+L0074,2026-07-10 18:56,2026-07-10,B04,labs,lab_technician,waste,5.0,kg,5.0,kg,False,evening reading
+L0075,2026-07-11 15:00,2026-07-11,B03,Central Library,facility_staff,water,0.8,kL,800.0,L,False,
+L0076,2026-07-11 15:10,2026-07-11,B02,Block B,student_volunteer,water,2569.0,L,2569.0,L,False,as per meter
+L0077,2026-07-11 19:15,2026-07-11,B02,Acad Block B,facility_staff,electricity,322.4,units,322.4,kWh,False,as per meter
+L0078,2026-07-11 20:52,2026-07-11,B04,labs,facility_staff,waste,1.0,bags,8.0,kg,False,
+L0079,2026-07-12 12:05,2026-07-12,B06,girls hostel,hostel_supervisor,waste,67.0,kg,67.0,kg,False,approx
+L0080,2026-07-12 17:07,2026-07-12,B01,Acad Block A,student_volunteer,waste,2.0,bags,16.0,kg,False,evening reading
+L0081,2026-07-12 20:05,2026-07-12,B06,Girls Hostel,warden,waste,44.0,kg,44.0,kg,False,approx
+L0082,2026-07-12 20:19,2026-07-12,B07,B07,mess_supervisor,electricity,316.2,kWh,316.2,kWh,False,as per meter
+L0083,2026-07-13 13:56,2026-07-13,B03,Library,facility_staff,electricity,324.8,kWh,324.8,kWh,False,counted at end of day
+L0084,2026-07-13 16:18,2026-07-13,B03,Library,facility_staff,water,740.0,L,740.0,L,False,
+L0085,2026-07-13 17:18,2026-07-13,B04,B04,lab_technician,water,1247.0,L,1247.0,L,False,evening reading
+L0086,2026-07-14 07:42,2026-07-14,B07,B07,kitchen_staff,waste,10.0,bags,80.0,kg,False,approx
+L0087,2026-07-14 09:04,2026-07-14,B07,FC,mess_supervisor,waste,11.0,bags,88.0,kg,False,
+L0088,2026-07-14 10:21,2026-07-14,B08,admin block,office_staff,waste,2.0,bags,16.0,kg,False,
+L0089,2026-07-14 12:00,2026-07-14,B07,Canteen,kitchen_staff,electricity,34.8,kWh,34.8,kWh,False,
+L0090,2026-07-14 12:14,2026-07-14,B02,Academic Block B,facility_staff,water,1544.0,L,1544.0,L,False,
+L0091,2026-07-14 17:40,2026-07-14,B01,Acad Block A,facility_staff,waste,113.0,kg,113.0,kg,False,
+L0092,2026-07-15 07:40,2026-07-15,B03,central lib,librarian,electricity,309.4,kWh,309.4,kWh,False,approx
+L0093,2026-07-15 19:41,2026-07-15,B06,girls hostel,hostel_supervisor,waste,7.0,bags,56.0,kg,False,
+L0094,2026-07-16 09:40,2026-07-16,B08,Admin Block,facility_staff,electricity,258.7,kWh,258.7,kWh,False,approx
+L0095,2026-07-16 10:59,2026-07-16,B08,Admin Block,facility_staff,electricity,258.7,kWh,258.7,kWh,False,approx
+L0096,2026-07-16 17:13,2026-07-16,B05,boys hostel,warden,electricity,637.6,kWh,637.6,kWh,False,daily total
+L0097,2026-07-17 08:26,2026-07-17,B06,Girls Hostel,hostel_supervisor,waste,10.0,bags,80.0,kg,False,counted at end of day
+L0098,2026-07-17 15:42,2026-07-17,B06,girls hostel,hostel_supervisor,water,14.3,kL,14300.0,L,False,
+L0099,2026-07-17 18:56,2026-07-17,B04,Eng Labs,lab_technician,electricity,433.1,kWh,433.1,kWh,False,
+L0100,2026-07-18 10:16,2026-07-18,B08,B08,office_staff,water,2.2,kL,2200.0,L,False,
+L0101,2026-07-18 15:04,2026-07-18,B07,food court,mess_supervisor,waste,12.0,bags,96.0,kg,False,daily total
+L0102,2026-07-18 17:21,2026-07-18,B02,Block B,facility_staff,water,1.5,kL,1500.0,L,False,approx
+L0103,2026-07-19 09:41,2026-07-19,B06,GH,warden,water,16.7,kL,16700.0,L,False,
+L0104,2026-07-19 13:33,2026-07-19,B05,BH,hostel_supervisor,electricity,669.7,units,669.7,kWh,False,as per meter
+L0105,2026-07-21 08:04,2026-07-21,B06,B06,warden,electricity,1771.3,kWh,1771.3,kWh,False,counted at end of day
+L0106,2026-07-21 08:59,2026-07-21,B06,B06,warden,electricity,1771.3,kWh,1771.3,kWh,False,counted at end of day
+L0107,2026-07-22 16:46,2026-07-22,B04,Innovation Centre,lab_technician,water,4.3,kL,4300.0,L,False,counted at end of day
+L0108,2026-07-23 09:47,2026-07-23,B06,B06,hostel_supervisor,water,72278.0,L,72278.0,L,False,approx
+L0109,2026-07-23 10:26,2026-07-23,B08,admin block,office_staff,waste,3.0,bags,24.0,kg,False,as per meter
+L0110,2026-07-23 11:52,2026-07-23,B04,Eng Labs,facility_staff,water,5050.0,L,5050.0,L,False,as per meter
+L0111,2026-07-23 18:47,2026-07-23,B06,B06,hostel_supervisor,water,71.0,kL,71000.0,L,False,as per meter
+L0112,2026-07-23 20:01,2026-07-23,B05,BH,hostel_supervisor,electricity,2540.9,kWh,2540.9,kWh,False,
+L0113,2026-07-24 11:06,2026-07-24,B04,Eng Labs,facility_staff,water,4.7,kL,4700.0,L,False,evening reading
+L0114,2026-07-24 11:20,2026-07-24,B06,Girls Hostel,warden,water,82.4,kL,82400.0,L,False,
+L0115,2026-07-24 16:19,2026-07-24,B05,Boys Hostel,warden,water,87.8,kL,87800.0,L,False,
+L0116,2026-07-24 17:14,2026-07-24,B05,Boys Hostel,warden,water,87.8,kL,87800.0,L,False,
+L0117,2026-07-24 20:54,2026-07-24,B01,B01,facility_staff,waste,82.0,kg,82.0,kg,False,
+L0118,2026-07-26 19:52,2026-07-26,B07,Food Court,mess_supervisor,waste,38.0,bags,304.0,kg,False,as per meter
+L0119,2026-07-27 12:52,2026-07-27,B04,Engineering Labs & Innovation Centre,facility_staff,waste,33.0,kg,33.0,kg,False,
+L0120,2026-07-27 13:30,2026-07-27,B01,B01,student_volunteer,electricity,716.1,kWh,716.1,kWh,False,
+L0121,2026-07-27 20:35,2026-07-27,B02,Block B,facility_staff,waste,79.0,kg,79.0,kg,False,
+L0122,2026-07-28 09:56,2026-07-28,B02,Academic Block B,facility_staff,water,9.2,kL,9200.0,L,False,
+L0123,2026-07-28 14:38,2026-07-28,B08,admin block,office_staff,electricity,322.3,kWh,322.3,kWh,False,as per meter
+L0124,2026-07-28 20:36,2026-07-28,B05,B05,hostel_supervisor,water,899.6,kL,899600.0,L,False,counted at end of day
+L0125,2026-07-29 08:16,2026-07-29,B04,Engineering Labs & Innovation Centre,lab_technician,waste,26.0,kg,26.0,kg,False,daily total
+L0126,2026-07-29 12:29,2026-07-29,B05,Boys Hostel,warden,waste,60.0,bags,480.0,kg,False,evening reading
+L0127,2026-07-29 13:30,2026-07-29,B06,B06,warden,electricity,1855.5,kWh,1855.5,kWh,False,daily total
+L0128,2026-07-29 15:52,2026-07-29,B06,Girls Hostel,warden,waste,304.0,kg,304.0,kg,False,evening reading
+L0129,2026-07-29 19:57,2026-07-29,B06,girls hostel,hostel_supervisor,waste,41.0,bags,328.0,kg,False,daily total
+L0130,2026-07-29 20:20,2026-07-29,B04,labs,lab_technician,electricity,654.4,kWh,654.4,kWh,False,evening reading
+L0131,2026-07-29 21:42,2026-07-29,B04,labs,lab_technician,electricity,654.4,kWh,654.4,kWh,False,evening reading
+L0132,2026-07-30 17:56,2026-07-30,B08,Admin Block,office_staff,electricity,278.1,units,278.1,kWh,False,approx
+L0133,2026-08-01 08:55,2026-08-01,B05,Boys Hostel,warden,waste,54.0,bags,432.0,kg,False,
+L0134,2026-08-01 10:04,2026-08-01,B04,Innovation Centre,facility_staff,water,0.7,kL,700.0,L,False,daily total
+L0135,2026-08-01 13:02,2026-08-01,B04,Eng Labs,lab_technician,water,0.6,kL,600.0,L,False,daily total
+L0136,2026-08-01 20:32,2026-08-01,B03,central lib,librarian,water,110.0,L,110.0,L,False,as per meter
+L0137,2026-08-03 09:04,2026-08-03,B05,boys hostel,hostel_supervisor,electricity,2474.0,units,2474.0,kWh,False,daily total
+L0138,2026-08-03 11:22,2026-08-03,B01,block A,facility_staff,water,11.2,kL,11200.0,L,False,approx
+L0139,2026-08-03 12:40,2026-08-03,B04,labs,lab_technician,water,4449.0,L,4449.0,L,False,evening reading
+L0140,2026-08-04 12:50,2026-08-04,B02,B02,student_volunteer,water,10605.0,L,10605.0,L,False,daily total
+L0141,2026-08-04 15:50,2026-08-04,B04,Engineering Labs & Innovation Centre,lab_technician,water,4798.0,L,4798.0,L,False,as per meter
+L0142,2026-08-05 07:15,2026-08-05,B01,academic block a,facility_staff,water,13.2,kL,13200.0,L,False,
+L0143,2026-08-05 07:49,2026-08-05,B08,Admin,facility_staff,waste,3.0,bags,24.0,kg,False,
+L0144,2026-08-05 17:40,2026-08-05,B06,GH,warden,note,,,,,True,"Water meter running fast, tank refilling often. Wet patch near 3rd floor washroom pipe."
+L0145,2026-08-05 18:01,2026-08-05,B02,B02,student_volunteer,electricity,525.6,kWh,525.6,kWh,False,as per meter
+L0146,2026-08-05 18:14,2026-08-05,B01,academic block a,facility_staff,electricity,753.7,kWh,753.7,kWh,False,daily total
+L0147,2026-08-05 20:00,2026-08-05,B06,girls hostel,warden,electricity,1860.4,kWh,1860.4,kWh,False,
+L0148,2026-08-06 11:41,2026-08-06,B05,B05,hostel_supervisor,water,81075.0,L,81075.0,L,False,
+L0149,2026-08-06 12:26,2026-08-06,B07,Canteen,mess_supervisor,electricity,772.9,units,772.9,kWh,False,evening reading
+L0150,2026-08-06 16:56,2026-08-06,B02,Block B,facility_staff,water,10748.0,L,10748.0,L,False,
+L0151,2026-08-06 17:03,2026-08-06,B07,B07,kitchen_staff,electricity,804.0,kWh,804.0,kWh,False,
+L0152,2026-08-06 18:14,2026-08-06,B02,B02,student_volunteer,electricity,578.4,kWh,578.4,kWh,False,
+L0153,2026-08-07 12:50,2026-08-07,B07,FC,mess_supervisor,electricity,673.7,units,673.7,kWh,False,as per meter
+L0154,2026-08-07 16:58,2026-08-07,B03,Library,facility_staff,water,2541.0,L,2541.0,L,False,as per meter
+L0155,2026-08-07 18:05,2026-08-07,B06,Girls Hostel,hostel_supervisor,note,,,,,True,Plumber called. Leak suspected in underground line near block entrance.
+L0156,2026-08-08 20:53,2026-08-08,B02,Acad Block B,student_volunteer,water,2657.0,L,2657.0,L,False,approx
+L0157,2026-08-09 07:59,2026-08-09,B01,academic block a,student_volunteer,electricity,405.1,units,405.1,kWh,False,as per meter
+L0158,2026-08-09 12:54,2026-08-09,B08,admin block,office_staff,water,284.0,L,284.0,L,False,approx
+L0159,2026-08-09 15:14,2026-08-09,B02,Academic Block B,student_volunteer,water,1419.0,L,1419.0,L,False,evening reading
+L0160,2026-08-09 16:36,2026-08-09,B02,B02,facility_staff,electricity,275.6,kWh,275.6,kWh,False,evening reading
+L0161,2026-08-10 07:16,2026-08-10,B02,Academic Block B,student_volunteer,waste,70.0,kg,70.0,kg,False,
+L0162,2026-08-10 08:43,2026-08-10,B04,Eng Labs,facility_staff,water,5.6,kL,5600.0,L,False,counted at end of day
+L0163,2026-08-10 12:41,2026-08-10,B04,labs,facility_staff,water,5.2,kL,5200.0,L,False,counted at end of day
+L0164,2026-08-10 17:20,2026-08-10,B06,B06,warden,note,,,,,True,Leak fixed by plumber. Line replaced.
+L0165,2026-08-11 12:20,2026-08-11,B08,Admin Block,office_staff,electricity,284.4,kWh,284.4,kWh,False,counted at end of day
+L0166,2026-08-11 15:31,2026-08-11,B01,block A,facility_staff,waste,97.0,kg,97.0,kg,False,
+L0167,2026-08-11 20:16,2026-08-11,B01,block A,student_volunteer,waste,90.0,kg,90.0,kg,False,
+L0168,2026-08-11 20:28,2026-08-11,B06,GH,warden,water,75920.0,L,75920.0,L,False,as per meter
+L0169,2026-08-11 20:34,2026-08-11,B06,B06,hostel_supervisor,waste,32.0,bags,256.0,kg,False,
+L0170,2026-08-12 17:40,2026-08-12,B03,B03,librarian,electricity,455.5,units,455.5,kWh,False,
+L0171,2026-08-12 18:15,2026-08-12,B02,Block B,facility_staff,waste,8.0,bags,64.0,kg,False,
+L0172,2026-08-13 09:59,2026-08-13,B01,B01,facility_staff,water,12.3,kL,12300.0,L,False,approx
+L0173,2026-08-13 12:43,2026-08-13,B03,Library,facility_staff,water,2.7,kL,2700.0,L,False,
+L0174,2026-08-13 20:01,2026-08-13,B01,block A,facility_staff,water,12770.0,L,12770.0,L,False,daily total
+L0175,2026-08-13 20:44,2026-08-13,B08,B08,facility_staff,waste,239.0,kg,239.0,kg,False,approx
+L0176,2026-08-14 15:09,2026-08-14,B05,BH,warden,water,83.4,kL,83400.0,L,False,as per meter
+L0177,2026-08-14 18:22,2026-08-14,B03,Library,librarian,water,3.0,kL,3000.0,L,False,
+L0178,2026-08-15 14:09,2026-08-15,B08,B08,office_staff,electricity,106.9,kWh,106.9,kWh,False,
+L0179,2026-08-15 14:23,2026-08-15,B05,Boys Hostel,warden,waste,66.0,bags,528.0,kg,False,counted at end of day
+L0180,2026-08-16 07:46,2026-08-16,B08,B08,facility_staff,waste,1.0,kg,1.0,kg,False,approx
+L0181,2026-08-17 08:31,2026-08-17,B01,B01,facility_staff,waste,12.0,bags,96.0,kg,False,evening reading
+L0182,2026-08-17 15:04,2026-08-17,B03,Central Library,facility_staff,waste,15.0,kg,15.0,kg,False,
+L0183,2026-08-17 16:29,2026-08-17,B04,labs,lab_technician,electricity,662.5,kWh,662.5,kWh,False,
+L0184,2026-08-18 10:08,2026-08-18,B08,Admin,facility_staff,water,3.3,kL,3300.0,L,False,counted at end of day
+L0185,2026-08-18 10:09,2026-08-18,B06,Girls Hostel,hostel_supervisor,waste,30.0,bags,240.0,kg,False,counted at end of day
+L0186,2026-08-18 16:18,2026-08-18,B01,academic block a,facility_staff,electricity,723.0,kWh,723.0,kWh,False,evening reading
+L0187,2026-08-19 13:40,2026-08-19,B08,Admin,office_staff,electricity,299.7,kWh,299.7,kWh,False,
+L0188,2026-08-19 18:06,2026-08-19,B03,Library,facility_staff,water,2641.0,L,2641.0,L,False,
+L0189,2026-08-20 07:37,2026-08-20,B01,block A,student_volunteer,electricity,764.3,kWh,764.3,kWh,False,
+L0190,2026-08-20 08:16,2026-08-20,B04,Innovation Centre,facility_staff,water,5.6,kL,5600.0,L,False,as per meter
+L0191,2026-08-20 09:02,2026-08-20,B04,Innovation Centre,facility_staff,water,5.6,kL,5600.0,L,False,as per meter
+L0192,2026-08-20 13:00,2026-08-20,B02,Acad Block B,student_volunteer,water,9.5,kL,9500.0,L,False,
+L0193,2026-08-20 15:27,2026-08-20,B05,Boys Hostel,warden,waste,438.0,kg,438.0,kg,False,
+L0194,2026-08-20 15:44,2026-08-20,B03,Central Library,librarian,waste,2.0,bags,16.0,kg,False,
+L0195,2026-08-20 16:56,2026-08-20,B06,Girls hostle,hostel_supervisor,water,73.0,kL,73000.0,L,False,
+L0196,2026-08-21 11:37,2026-08-21,B02,Academic Block B,facility_staff,water,9.0,kL,9000.0,L,False,approx
+L0197,2026-08-21 11:58,2026-08-21,B04,Innovation Centre,facility_staff,electricity,646.4,kWh,646.4,kWh,False,
+L0198,2026-08-21 15:47,2026-08-21,B04,Engineering Labs & Innovation Centre,lab_technician,waste,32.0,kg,32.0,kg,False,
+L0199,2026-08-21 16:20,2026-08-21,B05,BH,hostel_supervisor,water,91.5,kL,91500.0,L,False,evening reading
+L0200,2026-08-22 11:11,2026-08-22,B05,Boys Hostle,warden,electricity,2334.4,kWh,2334.4,kWh,False,counted at end of day
+L0201,2026-08-22 13:51,2026-08-22,B02,Block B,facility_staff,water,1.4,kL,1400.0,L,False,counted at end of day
+L0202,2026-08-23 08:38,2026-08-23,B07,Canteen,mess_supervisor,electricity,613.3,kWh,613.3,kWh,False,approx
+L0203,2026-08-23 08:58,2026-08-23,B01,block A,student_volunteer,electricity,403.0,units,403.0,kWh,False,
+L0204,2026-08-23 10:29,2026-08-23,B05,B05,hostel_supervisor,electricity,2390.8,units,2390.8,kWh,False,evening reading
+L0205,2026-08-23 13:48,2026-08-23,B08,admin block,office_staff,electricity,103.9,kWh,103.9,kWh,False,counted at end of day
+L0206,2026-08-23 14:52,2026-08-23,B08,admin block,office_staff,electricity,103.9,kWh,103.9,kWh,False,counted at end of day
+L0207,2026-08-23 19:44,2026-08-23,B08,admin block,office_staff,waste,1.0,bags,8.0,kg,False,
+L0208,2026-08-24 08:14,2026-08-24,B04,Innovation Centre,lab_technician,electricity,658.2,units,658.2,kWh,False,approx
+L0209,2026-08-24 10:37,2026-08-24,B05,B05,warden,water,80461.0,L,80461.0,L,False,
+L0210,2026-08-24 12:10,2026-08-24,B07,Canteen,mess_supervisor,electricity,793.0,units,793.0,kWh,False,as per meter
+L0211,2026-08-24 15:45,2026-08-24,B02,Academic Block B,facility_staff,electricity,528.3,kWh,528.3,kWh,False,
+L0212,2026-08-24 19:02,2026-08-24,B06,girls hostel,warden,waste,248.0,kg,248.0,kg,False,
+L0213,2026-08-25 11:46,2026-08-25,B06,Girls hostle,hostel_supervisor,water,69515.0,L,69515.0,L,False,daily total
+L0214,2026-08-25 15:22,2026-08-25,B08,Admin,office_staff,waste,3.0,bags,24.0,kg,False,
+L0215,2026-08-25 15:35,2026-08-25,B04,Engineering Labs & Innovation Centre,facility_staff,water,5.8,kL,5800.0,L,False,as per meter
+L0216,2026-08-26 09:38,2026-08-26,B04,labs,lab_technician,water,4.8,kL,4800.0,L,False,
+L0217,2026-08-26 13:21,2026-08-26,B08,B08,facility_staff,electricity,320.0,units,320.0,kWh,False,counted at end of day
+L0218,2026-08-26 16:50,2026-08-26,B08,B08,facility_staff,waste,3.0,bags,24.0,kg,False,daily total
+L0219,2026-08-27 08:53,2026-08-27,B05,B05,warden,waste,60.0,bags,480.0,kg,False,daily total
+L0220,2026-08-27 16:30,2026-08-27,B04,B04,lab_technician,note,,,,,True,"Power analyzer was being calibrated today, reading looked odd."
+L0221,2026-08-27 17:30,2026-08-27,B05,Boys Hostle,hostel_supervisor,electricity,2449.1,kWh,2449.1,kWh,False,
+L0222,2026-08-28 07:15,2026-08-28,B03,Central Library,librarian,water,2.9,kL,2900.0,L,False,approx
+L0223,2026-08-28 09:52,2026-08-28,B08,B08,facility_staff,waste,23.0,kg,23.0,kg,False,
+L0224,2026-08-28 10:23,2026-08-28,B01,B01,student_volunteer,water,11.2,kL,11200.0,L,False,
+L0225,2026-08-28 12:22,2026-08-28,B03,Library,librarian,waste,2.0,bags,16.0,kg,False,
+L0226,2026-08-29 07:24,2026-08-29,B06,Girls hostle,hostel_supervisor,water,62.6,kL,62600.0,L,False,as per meter
+L0227,2026-08-29 10:32,2026-08-29,B07,Canteen,kitchen_staff,electricity,641.1,kWh,641.1,kWh,False,
+L0228,2026-08-29 10:57,2026-08-29,B02,Block B,facility_staff,water,1.2,kL,1200.0,L,False,
+L0229,2026-08-29 15:03,2026-08-29,B07,Food Court,kitchen_staff,electricity,611.3,units,611.3,kWh,False,
+L0230,2026-08-29 17:27,2026-08-29,B03,Central Library,facility_staff,electricity,321.4,kWh,321.4,kWh,False,
+L0231,2026-08-30 10:31,2026-08-30,B04,Innovation Centre,facility_staff,electricity,4053.3,units,4053.3,kWh,False,counted at end of day
+L0232,2026-08-30 13:45,2026-08-30,B07,B07,mess_supervisor,electricity,590.6,kWh,590.6,kWh,False,
+L0233,2026-08-30 19:21,2026-08-30,B04,Engineering Labs & Innovation Centre,lab_technician,electricity,408.0,units,408.0,kWh,False,as per meter
+L0234,2026-08-31 08:21,2026-08-31,B08,admin block,facility_staff,waste,3.0,bags,24.0,kg,False,evening reading
+L0235,2026-08-31 08:34,2026-08-31,B08,admin block,office_staff,waste,21.0,kg,21.0,kg,False,
+L0236,2026-08-31 12:32,2026-08-31,B06,B06,warden,water,76.4,kL,76400.0,L,False,
+L0237,2026-08-31 13:43,2026-08-31,B03,B03,facility_staff,electricity,45.2,kWh,45.2,kWh,False,counted at end of day
+L0238,2026-08-31 15:50,2026-08-31,B05,Boys Hostel,hostel_supervisor,water,96797.0,L,96797.0,L,False,counted at end of day
+L0239,2026-08-31 17:29,2026-08-31,B04,Engineering Labs & Innovation Centre,facility_staff,water,5040.0,L,5040.0,L,False,
+L0240,2026-08-31 18:21,2026-08-31,B06,B06,hostel_supervisor,waste,34.0,bags,272.0,kg,False,
+L0241,2026-08-31 20:10,2026-08-31,B06,GH,warden,electricity,2008.0,units,2008.0,kWh,False,approx
+L0242,2026-09-01 07:46,2026-09-01,B04,B04,facility_staff,water,5.5,kL,5500.0,L,False,
+L0243,2026-09-01 09:38,2026-09-01,B03,B03,facility_staff,waste,2.0,bags,16.0,kg,False,
+L0244,2026-09-01 13:40,2026-09-01,B08,Admin,office_staff,electricity,311.1,kWh,311.1,kWh,False,as per meter
+L0245,2026-09-01 17:55,2026-09-01,B08,Admin,office_staff,waste,21.0,kg,21.0,kg,False,
+L0246,2026-09-02 19:24,2026-09-02,B05,BH,warden,waste,62.0,bags,496.0,kg,False,
+L0247,2026-09-03 12:47,2026-09-03,B08,Admin Block,office_staff,water,3.0,kL,3000.0,L,False,
+L0248,2026-09-03 15:33,2026-09-03,B05,BH,hostel_supervisor,electricity,2343.6,kWh,2343.6,kWh,False,daily total
+L0249,2026-09-03 17:10,2026-09-03,B02,Academic Block B,facility_staff,note,,,,,True,"Water meter stuck at zero, need to call vendor."
+L0250,2026-09-03 17:18,2026-09-03,B07,B07,kitchen_staff,electricity,777.0,kWh,777.0,kWh,False,
+L0251,2026-09-04 11:49,2026-09-04,B02,Academic Block B,student_volunteer,waste,11.0,bags,88.0,kg,False,daily total
+L0252,2026-09-04 13:32,2026-09-04,B05,BH,warden,waste,3347.0,kg,3347.0,kg,False,evening reading
+L0253,2026-09-04 14:27,2026-09-04,B06,GH,warden,waste,246.0,kg,246.0,kg,False,daily total
+L0254,2026-09-05 07:13,2026-09-05,B06,Girls Hostel,warden,water,74.1,kL,74100.0,L,False,
+L0255,2026-09-05 10:14,2026-09-05,B01,B01,student_volunteer,electricity,367.5,units,367.5,kWh,False,counted at end of day
+L0256,2026-09-05 16:53,2026-09-05,B02,Acad Block B,facility_staff,electricity,287.4,kWh,287.4,kWh,False,manual cross-check
+L0257,2026-09-05 18:15,2026-09-05,B05,Boys Hostel,hostel_supervisor,electricity,2271.9,kWh,2271.9,kWh,False,counted at end of day
+L0258,2026-09-06 07:30,2026-09-06,B01,Acad Block A,facility_staff,waste,11.0,kg,11.0,kg,False,counted at end of day
+L0259,2026-09-06 09:57,2026-09-06,B05,B05,hostel_supervisor,electricity,2386.9,kWh,2386.9,kWh,False,evening reading
+L0260,2026-09-06 10:21,2026-09-06,B04,Innovation Centre,facility_staff,electricity,468.7,units,468.7,kWh,False,
+L0261,2026-09-06 13:33,2026-09-06,B07,food court,mess_supervisor,electricity,600.4,kWh,600.4,kWh,False,evening reading
+L0262,2026-09-06 15:18,2026-09-06,B02,Acad Block B,facility_staff,electricity,286.5,units,286.5,kWh,False,approx
+L0263,2026-09-06 16:31,2026-09-06,B02,Academic Block B,facility_staff,water,2.5,kL,2500.0,L,False,counted at end of day
+L0264,2026-09-06 18:39,2026-09-06,B06,Girls Hostel,hostel_supervisor,electricity,1716.1,kWh,1716.1,kWh,False,counted at end of day
+L0265,2026-09-07 07:48,2026-09-07,B04,labs,facility_staff,electricity,656.8,units,656.8,kWh,False,
+L0266,2026-09-07 09:55,2026-09-07,B02,B02,facility_staff,water,8.9,kL,8900.0,L,False,approx
+L0267,2026-09-07 18:09,2026-09-07,B04,labs,facility_staff,electricity,629.6,kWh,629.6,kWh,False,
+L0268,2026-09-07 18:33,2026-09-07,B03,B03,facility_staff,electricity,460.7,kWh,460.7,kWh,False,daily total
+L0269,2026-09-07 19:29,2026-09-07,B01,Academic Block A,facility_staff,water,11279.0,L,11279.0,L,False,counted at end of day
+L0270,2026-09-07 20:26,2026-09-07,B06,Girls Hostel,hostel_supervisor,electricity,1807.1,units,1807.1,kWh,False,approx
+L0271,2026-09-08 08:39,2026-09-08,B02,Acad Block B,student_volunteer,waste,8.0,bags,64.0,kg,False,
+L0272,2026-09-08 15:47,2026-09-08,B01,block A,student_volunteer,electricity,744.6,kWh,744.6,kWh,False,
+L0273,2026-09-08 18:00,2026-09-08,B05,Boys Hostel,hostel_supervisor,note,,,,,True,"Composter not working since yesterday, motor burnt. Wet waste going with normal garbage."
+L0274,2026-09-08 20:40,2026-09-08,B06,GH,warden,electricity,1645.7,kWh,1645.7,kWh,False,as per meter
+L0275,2026-09-09 14:35,2026-09-09,B08,B08,office_staff,electricity,292.6,kWh,292.6,kWh,False,daily total
+L0276,2026-09-09 14:37,2026-09-09,B03,B03,facility_staff,waste,2.0,bags,16.0,kg,False,evening reading
+L0277,2026-09-10 09:08,2026-09-10,B08,admin block,office_staff,waste,19.0,kg,19.0,kg,False,approx
+L0278,2026-09-10 09:13,2026-09-10,B04,Eng Labs,facility_staff,waste,32.0,kg,32.0,kg,False,daily total
+L0279,2026-09-10 10:05,2026-09-10,B08,admin block,office_staff,water,3018.0,L,3018.0,L,False,
+L0280,2026-09-10 16:28,2026-09-10,B03,Central Library,facility_staff,electricity,413.9,kWh,413.9,kWh,False,evening reading
+L0281,2026-09-11 12:43,2026-09-11,B07,food court,mess_supervisor,water,32986.0,L,32986.0,L,False,evening reading
+L0282,2026-09-11 13:02,2026-09-11,B01,Acad Block A,facility_staff,waste,88.0,kg,88.0,kg,False,
+L0283,2026-09-11 13:55,2026-09-11,B01,Acad Block A,facility_staff,waste,88.0,kg,88.0,kg,False,
+L0284,2026-09-11 16:09,2026-09-11,B06,girls hostel,warden,water,81.5,kL,81500.0,L,False,
+L0285,2026-09-11 19:10,2026-09-11,B04,labs,lab_technician,electricity,677.2,units,677.2,kWh,False,daily total
+L0286,2026-09-11 19:54,2026-09-11,B06,Girls Hostel,warden,electricity,2093.7,units,2093.7,kWh,False,as per meter
+L0287,2026-09-12 15:24,2026-09-12,B08,Admin Block,facility_staff,water,0.6,kL,600.0,L,False,approx
+L0288,2026-09-12 16:00,2026-09-12,B08,Admin Block,office_staff,electricity,105.0,kWh,105.0,kWh,False,counted at end of day
+L0289,2026-09-12 16:33,2026-09-12,B02,Acad Block B,facility_staff,electricity,279.9,kWh,279.9,kWh,False,manual cross-check
+L0290,2026-09-13 15:29,2026-09-13,B02,Block B,facility_staff,electricity,270.1,kWh,270.1,kWh,False,
+L0291,2026-09-13 16:36,2026-09-13,B01,Academic Block A,facility_staff,waste,10.0,kg,10.0,kg,False,as per meter
+L0292,2026-09-13 20:07,2026-09-13,B04,Engineering Labs & Innovation Centre,facility_staff,electricity,418.0,units,418.0,kWh,False,
+L0293,2026-09-14 07:41,2026-09-14,B02,B02,facility_staff,electricity,553.4,kWh,553.4,kWh,False,
+L0294,2026-09-14 12:29,2026-09-14,B06,B06,hostel_supervisor,waste,398.0,kg,398.0,kg,False,counted at end of day
+L0295,2026-09-14 16:21,2026-09-14,B04,Innovation Centre,facility_staff,water,4.9,kL,4900.0,L,False,
+L0296,2026-09-14 16:35,2026-09-14,B03,Central Library,facility_staff,water,2456.0,L,2456.0,L,False,counted at end of day
+L0297,2026-09-14 17:45,2026-09-14,B05,boys hostel,hostel_supervisor,note,,,,,True,"Composter motor replaced, working again."
+L0298,2026-09-14 18:35,2026-09-14,B05,boys hostel,warden,water,959417.0,L,959417.0,L,False,
+L0299,2026-09-15 10:42,2026-09-15,B08,B08,facility_staff,waste,3.0,bags,24.0,kg,False,evening reading
+L0300,2026-09-15 15:50,2026-09-15,B06,Girls hostle,warden,water,83523.0,L,83523.0,L,False,daily total
+L0301,2026-09-15 16:54,2026-09-15,B02,Academic Block B,facility_staff,electricity,488.7,units,488.7,kWh,False,
+L0302,2026-09-16 15:40,2026-09-16,B07,FC,kitchen_staff,waste,67.0,bags,536.0,kg,False,
+L0303,2026-09-17 16:44,2026-09-17,B02,Acad Block B,facility_staff,water,9676.0,L,9676.0,L,False,daily total
+L0304,2026-09-18 07:30,2026-09-18,B08,admin block,office_staff,electricity,314.4,kWh,314.4,kWh,False,approx
+L0305,2026-09-18 07:49,2026-09-18,B05,BH,warden,water,94265.0,L,94265.0,L,False,
+L0306,2026-09-18 07:55,2026-09-18,B07,Canteen,mess_supervisor,waste,436.0,bags,3488.0,kg,False,daily total
+L0307,2026-09-18 09:58,2026-09-18,B02,Acad Block B,student_volunteer,water,9896.0,L,9896.0,L,False,daily total
+L0308,2026-09-18 16:50,2026-09-18,B07,B07,mess_supervisor,note,,,,,True,"Alumni meet tomorrow, expecting 1500+ people. Extra cooking planned."
+L0309,2026-09-18 19:07,2026-09-18,B04,Innovation Centre,lab_technician,waste,41.0,kg,41.0,kg,False,counted at end of day
+L0310,2026-09-19 11:20,2026-09-19,B07,food court,mess_supervisor,water,37388.0,L,37388.0,L,False,daily total
+L0311,2026-09-19 11:56,2026-09-19,B02,B02,facility_staff,electricity,277.0,kWh,277.0,kWh,False,manual cross-check
+L0312,2026-09-19 15:23,2026-09-19,B07,food court,kitchen_staff,electricity,1119.2,kWh,1119.2,kWh,False,counted at end of day
+L0313,2026-09-19 18:14,2026-09-19,B04,Engineering Labs & Innovation Centre,lab_technician,waste,6.0,kg,6.0,kg,False,
+L0314,2026-09-20 09:22,2026-09-20,B05,BH,hostel_supervisor,electricity,221.5,kWh,221.5,kWh,False,
+L0315,2026-09-20 17:15,2026-09-20,B02,B02,facility_staff,note,,,,,True,Electricity meter reading seems higher than last month though classes are normal.
+L0316,2026-09-20 20:57,2026-09-20,B01,Academic Block A,facility_staff,waste,12.0,kg,12.0,kg,False,
+L0317,2026-09-21 10:24,2026-09-21,B06,GH,hostel_supervisor,water,69386.0,L,69386.0,L,False,as per meter
+L0318,2026-09-21 11:01,2026-09-21,B06,GH,hostel_supervisor,water,69386.0,L,69386.0,L,False,as per meter
+L0319,2026-09-21 12:32,2026-09-21,B01,academic block a,facility_staff,electricity,648.9,units,648.9,kWh,False,
+L0320,2026-09-21 16:24,2026-09-21,B01,Acad Block A,student_volunteer,waste,85.0,kg,85.0,kg,False,approx
+L0321,2026-09-21 20:00,2026-09-21,B03,B03,facility_staff,waste,19.0,kg,19.0,kg,False,as per meter
+L0322,2026-09-21 20:49,2026-09-21,B05,B05,warden,electricity,2437.0,units,2437.0,kWh,False,
+L0323,2026-09-21 20:52,2026-09-21,B08,B08,facility_staff,electricity,320.3,units,320.3,kWh,False,evening reading
+L0324,2026-09-22 08:28,2026-09-22,B01,block A,student_volunteer,water,123760.0,L,123760.0,L,False,
+L0325,2026-09-22 08:57,2026-09-22,B02,Block B,facility_staff,electricity,596.6,kWh,596.6,kWh,False,
+L0326,2026-09-22 10:05,2026-09-22,B07,FC,kitchen_staff,electricity,760.3,kWh,760.3,kWh,False,evening reading
+L0327,2026-09-22 20:55,2026-09-22,B02,B02,student_volunteer,waste,87.0,bags,696.0,kg,False,
+L0328,2026-09-23 08:32,2026-09-23,B04,Engineering Labs & Innovation Centre,lab_technician,electricity,761.9,kWh,761.9,kWh,False,daily total
+L0329,2026-09-23 16:41,2026-09-23,B04,Innovation Centre,lab_technician,waste,39.0,kg,39.0,kg,False,counted at end of day
+L0330,2026-09-23 19:41,2026-09-23,B02,Block B,student_volunteer,electricity,635.3,kWh,635.3,kWh,False,evening reading
+L0331,2026-09-23 19:50,2026-09-23,B08,Admin Block,office_staff,electricity,324.8,units,324.8,kWh,False,
+L0332,2026-09-24 17:01,2026-09-24,B08,Admin Block,facility_staff,electricity,306.6,units,306.6,kWh,False,as per meter
+L0333,2026-09-25 08:29,2026-09-25,B04,B04,lab_technician,water,4.3,kL,4300.0,L,False,
+L0334,2026-09-25 08:45,2026-09-25,B07,Canteen,mess_supervisor,electricity,795.8,kWh,795.8,kWh,False,
+L0335,2026-09-25 09:55,2026-09-25,B07,Food Court,mess_supervisor,electricity,809.2,units,809.2,kWh,False,approx
+L0336,2026-09-26 10:30,2026-09-26,B02,B02,facility_staff,electricity,265.7,kWh,265.7,kWh,False,manual cross-check
+L0337,2026-09-26 17:07,2026-09-26,B08,Admin Block,facility_staff,electricity,102.0,units,102.0,kWh,False,counted at end of day
+L0338,2026-09-27 19:03,2026-09-27,B01,academic block a,student_volunteer,waste,13.0,kg,13.0,kg,False,
+L0339,2026-09-27 20:11,2026-09-27,B01,academic block a,student_volunteer,waste,13.0,kg,13.0,kg,False,
+L0340,2026-09-28 09:28,2026-09-28,B04,Eng Labs,lab_technician,water,3064.0,L,3064.0,L,False,evening reading
+L0341,2026-09-28 09:46,2026-09-28,B08,admin block,facility_staff,electricity,286.3,kWh,286.3,kWh,False,evening reading
+L0342,2026-09-28 11:31,2026-09-28,B05,BH,warden,electricity,2535.1,kWh,2535.1,kWh,False,
+L0343,2026-09-28 14:02,2026-09-28,B01,Academic Block A,student_volunteer,waste,61.0,kg,61.0,kg,False,
+L0344,2026-09-28 15:41,2026-09-28,B06,B06,warden,electricity,2039.3,kWh,2039.3,kWh,False,
+L0345,2026-09-28 20:09,2026-09-28,B03,B03,facility_staff,water,4.0,kL,4000.0,L,False,counted at end of day
+L0346,2026-09-29 12:50,2026-09-29,B08,Admin,office_staff,electricity,292.2,units,292.2,kWh,False,approx
+L0347,2026-09-29 13:21,2026-09-29,B08,Admin,office_staff,electricity,292.2,units,292.2,kWh,False,approx
+L0348,2026-09-29 15:37,2026-09-29,B07,food court,mess_supervisor,water,27318.0,L,27318.0,L,False,daily total
+L0349,2026-09-29 18:33,2026-09-29,B01,Academic Block A,student_volunteer,waste,65.0,kg,65.0,kg,False,
+L0350,2026-09-30 09:23,2026-09-30,B04,B04,lab_technician,electricity,541.7,units,541.7,kWh,False,evening reading
+L0351,2026-09-30 13:13,2026-09-30,B06,girls hostel,hostel_supervisor,water,64218.0,L,64218.0,L,False,evening reading
+L0352,2026-09-30 15:35,2026-09-30,B07,Food Court,mess_supervisor,waste,55.0,bags,440.0,kg,False,counted at end of day
+L0353,2026-09-30 18:59,2026-09-30,B05,boys hostel,warden,electricity,2799.2,kWh,2799.2,kWh,False,counted at end of day
+L0354,2026-10-01 12:10,2026-10-01,B02,Acad Block B,student_volunteer,water,6.3,kL,6300.0,L,False,
+L0355,2026-10-01 18:30,2026-10-01,B01,Acad Block A,facility_staff,water,10.9,kL,10900.0,L,False,as per meter
+L0356,2026-10-01 18:54,2026-10-01,B01,Acad Block A,facility_staff,water,10297.0,L,10297.0,L,False,
+L0357,2026-10-02 13:27,2026-10-02,B08,B08,office_staff,waste,5.0,kg,5.0,kg,False,evening reading
+L0358,2026-10-02 17:21,2026-10-02,B08,Admin Block,facility_staff,waste,1.0,bags,8.0,kg,False,daily total
+L0359,2026-10-02 19:05,2026-10-02,B03,B03,librarian,note,,,,,True,Holiday but AC and lights were left ON in main reading hall. Security noticed in the evening.
+L0360,2026-10-02 19:47,2026-10-02,B03,Library,facility_staff,water,197.0,L,197.0,L,False,as per meter
+L0361,2026-10-02 20:29,2026-10-02,B03,Library,facility_staff,water,197.0,L,197.0,L,False,as per meter
+L0362,2026-10-03 07:25,2026-10-03,B01,Academic Block A,facility_staff,electricity,392.0,units,392.0,kWh,False,counted at end of day
+L0363,2026-10-03 10:59,2026-10-03,B08,B08,office_staff,water,686.0,L,686.0,L,False,
+L0364,2026-10-03 13:52,2026-10-03,B08,admin block,facility_staff,water,615.0,L,615.0,L,False,
+L0365,2026-10-03 14:25,2026-10-03,B02,Acad Block B,facility_staff,electricity,291.2,kWh,291.2,kWh,False,manual cross-check
+L0366,2026-10-03 17:08,2026-10-03,B03,Central Library,librarian,water,1.6,kL,1600.0,L,False,
+L0367,2026-10-03 20:17,2026-10-03,B07,FC,kitchen_staff,electricity,574.4,kWh,574.4,kWh,False,
+L0368,2026-10-04 11:09,2026-10-04,B08,admin block,facility_staff,waste,2.0,kg,2.0,kg,False,evening reading
+L0369,2026-10-04 13:23,2026-10-04,B05,B05,warden,waste,49.0,bags,392.0,kg,False,
+L0370,2026-10-04 14:34,2026-10-04,B08,Admin,office_staff,water,643.0,L,643.0,L,False,
+L0371,2026-10-05 08:55,2026-10-05,B05,boys hostel,warden,electricity,2266.4,units,2266.4,kWh,False,counted at end of day
+L0372,2026-10-05 14:25,2026-10-05,B06,Girls Hostel,hostel_supervisor,water,79.1,kL,79100.0,L,False,as per meter
+L0373,2026-10-05 15:56,2026-10-05,B04,B04,facility_staff,waste,2.0,bags,16.0,kg,False,evening reading
+L0374,2026-10-06 13:17,2026-10-06,B07,Canteen,kitchen_staff,electricity,756.9,kWh,756.9,kWh,False,as per meter
+L0375,2026-10-06 16:18,2026-10-06,B03,Library,facility_staff,electricity,515.3,kWh,515.3,kWh,False,
+L0376,2026-10-06 20:39,2026-10-06,B02,B02,facility_staff,electricity,436.2,kWh,436.2,kWh,False,as per meter
+L0377,2026-10-07 11:30,2026-10-07,B04,B04,lab_technician,note,,,,,True,Rooftop solar inverter showing red error light since Tuesday.
+L0378,2026-10-07 12:30,2026-10-07,B06,B06,warden,waste,281.0,kg,281.0,kg,False,as per meter
+L0379,2026-10-07 13:48,2026-10-07,B07,Food Court,mess_supervisor,electricity,757.8,units,757.8,kWh,False,daily total
+L0380,2026-10-07 16:32,2026-10-07,B07,FC,mess_supervisor,water,22.8,kL,22800.0,L,False,approx
+L0381,2026-10-08 10:59,2026-10-08,B07,Canteen,mess_supervisor,water,2.4,kL,2400.0,L,False,daily total
+L0382,2026-10-08 12:15,2026-10-08,B02,Academic Block B,student_volunteer,electricity,463.6,kWh,463.6,kWh,False,approx
+L0383,2026-10-09 07:05,2026-10-09,B07,Canteen,kitchen_staff,electricity,620.1,kWh,620.1,kWh,False,approx
+L0384,2026-10-09 15:00,2026-10-09,B04,Innovation Centre,lab_technician,note,,,,,True,"Solar inverter reset by vendor, generating again."
+L0385,2026-10-09 15:38,2026-10-09,B08,Admin,facility_staff,water,2.6,kL,2600.0,L,False,evening reading
+L0386,2026-10-10 10:56,2026-10-10,B02,Block B,facility_staff,electricity,286.0,kWh,286.0,kWh,False,manual cross-check
+L0387,2026-10-10 12:47,2026-10-10,B05,B05,hostel_supervisor,water,89.2,kL,89200.0,L,False,
+L0388,2026-10-10 13:59,2026-10-10,B05,B05,hostel_supervisor,water,89.2,kL,89200.0,L,False,
+L0389,2026-10-10 17:51,2026-10-10,B05,B05,warden,electricity,2032.5,kWh,2032.5,kWh,False,as per meter
+L0390,2026-10-10 18:13,2026-10-10,B08,B08,facility_staff,electricity,110.7,units,110.7,kWh,False,evening reading
+L0391,2026-10-10 20:14,2026-10-10,B07,B07,mess_supervisor,water,20.5,kL,20500.0,L,False,daily total
+L0392,2026-10-10 21:42,2026-10-10,B07,B07,mess_supervisor,water,20.5,kL,20500.0,L,False,daily total
+L0393,2026-10-11 12:43,2026-10-11,B07,food court,kitchen_staff,electricity,658.2,units,658.2,kWh,False,
+L0394,2026-10-11 13:14,2026-10-11,B02,Academic Block B,facility_staff,waste,1.0,bags,8.0,kg,False,
+L0395,2026-10-12 10:06,2026-10-12,B07,Canteen,mess_supervisor,waste,716.0,bags,5728.0,kg,False,evening reading
+L0396,2026-10-12 10:08,2026-10-12,B04,Innovation Centre,facility_staff,waste,4.0,bags,32.0,kg,False,
+L0397,2026-10-12 14:22,2026-10-12,B07,Food Court,mess_supervisor,water,31.8,kL,31800.0,L,False,daily total
+L0398,2026-10-12 15:12,2026-10-12,B03,Library,librarian,water,2847.0,L,2847.0,L,False,evening reading
+L0399,2026-10-12 16:03,2026-10-12,B06,Girls hostle,warden,electricity,2051.0,units,2051.0,kWh,False,counted at end of day
+L0400,2026-10-12 16:53,2026-10-12,B01,Academic Block A,facility_staff,electricity,669.6,kWh,669.6,kWh,False,approx
+L0401,2026-10-12 17:35,2026-10-12,B02,Acad Block B,facility_staff,note,,,,,True,Energy meter display flickers sometimes. Not sure if the reading is correct.
+L0402,2026-10-12 19:35,2026-10-12,B06,Girls hostle,hostel_supervisor,water,76.3,kL,76300.0,L,False,counted at end of day
+L0403,2026-10-13 08:35,2026-10-13,B03,B03,facility_staff,waste,2.0,bags,16.0,kg,False,counted at end of day
+L0404,2026-10-13 16:16,2026-10-13,B08,Admin,facility_staff,electricity,304.7,kWh,304.7,kWh,False,
+L0405,2026-10-13 19:00,2026-10-13,B08,Admin,office_staff,electricity,284.6,kWh,284.6,kWh,False,approx
+L0406,2026-10-13 20:17,2026-10-13,B01,academic block a,facility_staff,water,12.9,kL,12900.0,L,False,as per meter
+L0407,2026-10-14 12:12,2026-10-14,B05,boys hostel,warden,waste,60.0,bags,480.0,kg,False,approx
+L0408,2026-10-14 15:23,2026-10-14,B01,academic block a,facility_staff,electricity,713.4,units,713.4,kWh,False,evening reading
+L0409,2026-10-14 16:16,2026-10-14,B01,Acad Block A,student_volunteer,water,13.2,kL,13200.0,L,False,daily total
+L0410,2026-10-15 11:30,2026-10-15,B01,academic block a,student_volunteer,waste,87.0,kg,87.0,kg,False,approx
+L0411,2026-10-16 13:03,2026-10-16,B03,central lib,librarian,electricity,486.9,units,486.9,kWh,False,
+L0412,2026-10-17 09:57,2026-10-17,B01,Acad Block A,student_volunteer,water,3104.0,L,3104.0,L,False,evening reading
+L0413,2026-10-17 14:13,2026-10-17,B06,Girls Hostel,hostel_supervisor,waste,30.0,bags,240.0,kg,False,
+L0414,2026-10-17 14:30,2026-10-17,B02,B02,facility_staff,electricity,259.5,kWh,259.5,kWh,False,manual cross-check
+L0415,2026-10-17 19:00,2026-10-17,B03,Central Library,librarian,waste,10.0,kg,10.0,kg,False,

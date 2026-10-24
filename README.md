@@ -15,7 +15,7 @@ Srujana 2026 "Prompt to Product: Prompt for the Planet" — problem: *Predictive
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python -m src.pipeline      # build data/processed/
-uvicorn src.api:app --reload   # open http://localhost:8000
+uvicorn src.api:app --reload   # landing: http://localhost:8000  workspace: http://localhost:8000/app
 ```
 Optional: put `ANTHROPIC_API_KEY` in `.env` for LLM-written brief text. Without it the app uses regex/template fallbacks.
 

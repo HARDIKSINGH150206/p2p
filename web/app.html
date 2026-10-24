@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>CircuGrid Brief</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<header class="ws-header">
+  <a class="ws-brand" href="/"><svg width="30" height="33" viewBox="0 0 30 33" fill="none" aria-hidden="true"><path d="M15 1.5 27 6v9.3c0 8.3-5.1 13.6-12 16.2C8.1 28.9 3 23.6 3 15.3V6L15 1.5Z" fill="#f2efe9"/><path d="M15 1.5 27 6v9.3c0 8.3-5.1 13.6-12 16.2V1.5Z" fill="#d9d5cc"/><path d="m10.2 15.6 3.3 3.3 6.4-6.8" stroke="#0a0a0a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div><div class="ws-brand-name">CircuGrid Brief</div><div class="ws-brand-sub">Predictive circular-resource grid</div></div></a>
+  <div class="ws-user"><span class="ws-chip" id="statChip">loading data…</span><span class="ws-chip ws-chip-blue">8 buildings · 120 days</span></div>
+</header>
+<div class="ws-body">
+  <aside class="ws-side"><p class="ws-side-label">Workspace</p><nav class="ws-nav" id="nav"></nav></aside>
+  <main class="ws-main">
+    <section class="view" id="v-grid">
+      <div class="lp-g-section">
+        <div class="lp-g-intro"><div><h2 class="lp-h2">Wire up the campus grid in a minute</h2>
+          <p class="lp-sub">Connect the five data sources. CircuGrid fuses them into one deduplicated, gap-tolerant feed, then forecasts, explains, rehearses an outage and counts the impact. Drag a dot to the hub, or press Connect all.</p></div>
+          <div class="lp-g-controls"><button class="lp-btn lp-btn-ghost lp-btn-sm" id="gReset">Reset</button><button class="lp-btn lp-btn-outline lp-btn-sm" id="gAll">Connect all</button></div></div>
+        <div class="lp-g-mobile" id="gMobile" style="margin-top:20px"></div>
+        <div class="lp-g-desk"><div class="lp-g-bg"><div class="lp-g-bg-grid" id="gGrid"></div></div>
+          <div class="lp-g-stage" id="gStage"><div class="lp-g-canvas" id="gCanvas"></div></div></div>
+        <p class="lp-sr" aria-live="polite" id="gLive"></p>
+      </div>
+    </section>
+
+    <section class="view" id="v-brief"><h1 class="ws-h1">Brief</h1><p class="ws-lead">Anomalies attributed to a probable cause with an evidence line, ranked by confidence. Baseline is the median of days in the same regime; a day flags at robust z above 5.</p><div id="briefBody" class="empty">Loading…</div></section>
+
+    <section class="view" id="v-forecast"><h1 class="ws-h1">Forecast</h1><p class="ws-lead">Per-building ridge model, 6 h and 12 h ahead, against two naive baselines. Time-ordered split: trained on data before 18 Sep, scored after.</p><div id="fcBody" class="empty">Loading…</div></section>
+
+    <section class="view" id="v-drill"><h1 class="ws-h1">Outage Drill</h1><p class="ws-lead">Take a building offline using real data as hidden truth. The grid keeps it on screen from visible hours of that day plus a day-type profile built on training days only. Reconnect to see the measured error.</p>
+      <div class="row">Building <select id="dB"></select> Start <input id="dS" value="2026-10-08 10:00" style="width:160px"> Hours <input id="dH" type="number" value="6" min="1" max="12" style="width:64px">
+        <button class="lp-btn lp-btn-outline lp-btn-sm" id="dGo">Take offline</button><button class="lp-btn lp-btn-light lp-btn-sm" id="dRe" disabled>Reconnect &amp; reconcile</button></div>
+      <canvas class="chart" id="dC" width="960" height="280"></canvas><div class="legend" id="dLeg"></div><div id="dBody"></div></section>
+
+    <section class="view" id="v-impact"><h1 class="ws-h1">Impact</h1><p class="ws-lead">Computed from the dataset with the data-guide constants. Savings are avoidable-if-caught scenarios, not measured outcomes.</p><div id="imBody" class="empty">Loading…</div></section>
+
+    <section class="view" id="v-bin"><h1 class="ws-h1">Bin classifier</h1><p class="ws-lead">Small random forest on five bin sensors, evaluated on a stratified hold-out of the labelled file. Runs on CPU in a few milliseconds per event.</p><div id="binBody" class="empty">Loading…</div></section>
+  </main>
+</div>
+<script src="/static/common.js"></script>
+<script src="/static/workspace.js"></script>
+</body></html>

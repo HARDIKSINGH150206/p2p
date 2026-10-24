@@ -26,3 +26,10 @@ TODO (team): log prompts here (verbatim-ish, purpose, output).
 - **Produced:** web/index.html, style.css, app.js. Graph: 5 sources -> fused hub -> 6 output cards with live numbers from our API; views for Brief, Forecast, Drill, Impact, Bin. Verified in headless Chrome: no console errors after fixing one syntax slip (a shell-expanded dollar-paren in a line I appended).
 - **Honesty fix:** accuracy shown to 2 decimals (84.96%) because 1 decimal rounds to 85.0% and would imply the target was met.
 - **TODO (team):**
+
+## Landing page (~1:35 PM IST)
+- **Prompt:** "https://ui.aceternity.com/pages/inference-landing-page ... this should be the landing page ... professional ... node diagram will be same"
+- **Purpose:** Build a landing page in the style of that template (dark, tilt-in dashboard hero, tabbed features, drag-and-wire canvas, dot map, developer panel, comparison table, dithered CTA), with the same wired graph.
+- **Produced:** web/index.html, landing.css, landing.js; split shared graph into common.js; moved workspace to /app (app.html, workspace.js); new GET /api/buildings. Pricing section replaced by an honest 'against the problem statement' status table and a labelled hardware-budget assumption; no invented users or testimonials.
+- **Checked:** headless Chrome desktop + 390px mobile, no console errors (one harmless ResizeObserver notice).
+- **TODO (team):**

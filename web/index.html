@@ -1,42 +1,79 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><title>CircuGrid Brief</title>
+<html lang="en"><head><meta charset="utf-8"><title>CircuGrid Brief — Predictive Circular-Resource Grid</title>
+<meta name="description" content="CircuGrid Brief fuses campus meters, logs and bin sensors into one grid that forecasts demand, explains anomalies and counts the impact.">
 <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a0a0a">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/static/style.css"></head>
-<body>
-<header class="ws-header">
-  <a class="ws-brand" href="/"><svg width="30" height="33" viewBox="0 0 30 33" fill="none" aria-hidden="true"><path d="M15 1.5 27 6v9.3c0 8.3-5.1 13.6-12 16.2C8.1 28.9 3 23.6 3 15.3V6L15 1.5Z" fill="#f2efe9"/><path d="M15 1.5 27 6v9.3c0 8.3-5.1 13.6-12 16.2V1.5Z" fill="#d9d5cc"/><path d="m10.2 15.6 3.3 3.3 6.4-6.8" stroke="#0a0a0a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  <div><div class="ws-brand-name">CircuGrid Brief</div><div class="ws-brand-sub">Predictive circular-resource grid</div></div></a>
-  <div class="ws-user"><span class="ws-chip" id="statChip">loading data…</span><span class="ws-chip ws-chip-blue">8 buildings · 120 days</span></div>
+<link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/landing.css"></head>
+<body class="lp">
+<nav class="lp-nav"><div class="lp-nav-in">
+  <a class="lp-brand" href="/"><svg width="26" height="29" viewBox="0 0 30 33" fill="none" aria-hidden="true"><path d="M15 1.5 27 6v9.3c0 8.3-5.1 13.6-12 16.2C8.1 28.9 3 23.6 3 15.3V6L15 1.5Z" fill="#f2efe9"/><path d="M15 1.5 27 6v9.3c0 8.3-5.1 13.6-12 16.2V1.5Z" fill="#d9d5cc"/><path d="m10.2 15.6 3.3 3.3 6.4-6.8" stroke="#0a0a0a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>CircuGrid</a>
+  <div class="lp-links"><a href="#workflow">Workflow</a><a href="#features">Features</a><a href="#scale">Campus</a><a href="#developers">API</a><a href="#data">Data</a><a href="#constraints">Constraints</a></div>
+  <div class="lp-nav-cta"><a class="lp-navlink" href="https://github.com/HARDIKSINGH150206/p2p" target="_blank" rel="noopener">GitHub</a><a class="lp-btn lp-btn-light lp-btn-sm" href="/app">Open workspace <span class="lp-arrow">→</span></a></div>
+</div></nav>
+
+<header class="hero">
+  <div class="hero-bg" aria-hidden="true"><div class="hero-grid"></div><div class="hero-glow"></div><div class="hero-fade"></div></div>
+  <div class="hero-in">
+    <a class="pill" href="#constraints"><span class="pill-tag">Srujana 2026</span>Predictive circular-resource grid · 8 buildings · 120 days</a>
+    <h1 class="h1"><span>Forecast</span> <span>the</span> <span>surge.</span> <span>Name</span> <span>the</span> <span>cause.</span> <span>Fix</span> <span>it</span> <span>first.</span></h1>
+    <p class="hero-sub">CircuGrid Brief fuses campus meters, staff logs and bin sensors into one grid that predicts demand, explains anomalies with evidence, and counts the carbon, money and waste it saves.</p>
+    <div class="hero-cta"><a class="lp-btn lp-btn-light" href="/app">Open the grid <span class="lp-arrow">→</span></a><a class="lp-btn lp-btn-outline" href="#workflow">Wire it up yourself</a></div>
+    <p class="hero-note">Every number on this page is computed live from the provided dataset.</p>
+  </div>
+  <div class="tilt-wrap"><div class="tilt" id="tilt"><div class="win">
+    <div class="win-bar"><i></i><i></i><i></i><span>circugrid / brief</span></div>
+    <div class="win-body"><aside class="win-side"><b>Workspace</b><span class="on">Grid</span><span>Brief</span><span>Forecast</span><span>Outage Drill</span><span>Impact</span><span>Bin classifier</span></aside>
+      <div class="win-main" id="heroDash"><p class="empty">Loading live data…</p></div></div>
+  </div></div></div>
 </header>
-<div class="ws-body">
-  <aside class="ws-side"><p class="ws-side-label">Workspace</p><nav class="ws-nav" id="nav"></nav></aside>
-  <main class="ws-main">
-    <section class="view" id="v-grid">
-      <div class="lp-g-section">
-        <div class="lp-g-intro"><div><h2 class="lp-h2">Wire up the campus grid in a minute</h2>
-          <p class="lp-sub">Connect the five data sources. CircuGrid fuses them into one deduplicated, gap-tolerant feed, then forecasts, explains, rehearses an outage and counts the impact. Drag a dot to the hub, or press Connect all.</p></div>
-          <div class="lp-g-controls"><button class="lp-btn lp-btn-ghost lp-btn-sm" id="gReset">Reset</button><button class="lp-btn lp-btn-outline lp-btn-sm" id="gAll">Connect all</button></div></div>
-        <div class="lp-g-mobile" id="gMobile" style="margin-top:20px"></div>
-        <div class="lp-g-desk"><div class="lp-g-bg"><div class="lp-g-bg-grid" id="gGrid"></div></div>
-          <div class="lp-g-stage" id="gStage"><div class="lp-g-canvas" id="gCanvas"></div></div></div>
-        <p class="lp-sr" aria-live="polite" id="gLive"></p>
-      </div>
-    </section>
 
-    <section class="view" id="v-brief"><h1 class="ws-h1">Brief</h1><p class="ws-lead">Anomalies attributed to a probable cause with an evidence line, ranked by confidence. Baseline is the median of days in the same regime; a day flags at robust z above 5.</p><div id="briefBody" class="empty">Loading…</div></section>
+<section id="workflow" class="sec"><div class="wrap">
+  <div class="sec-head"><div><h2 class="h2">Wire up the campus grid in a minute</h2>
+    <p class="sub">Connect the five data sources. CircuGrid fuses them into one deduplicated, gap-tolerant feed, then forecasts, explains, rehearses an outage and counts the impact. Drag a dot to the hub, or press Connect all.</p></div>
+    <div class="lp-g-controls"><button class="lp-btn lp-btn-ghost lp-btn-sm" id="gReset">Reset</button><button class="lp-btn lp-btn-outline lp-btn-sm" id="gAll">Connect all</button></div></div>
+  <div class="lp-g-mobile" id="gMobile" style="margin-top:20px"></div>
+  <div class="lp-g-desk"><div class="lp-g-bg"><div class="lp-g-bg-grid" id="gGrid"></div></div><div class="lp-g-stage" id="gStage"><div class="lp-g-canvas" id="gCanvas"></div></div></div>
+  <p class="lp-sr" aria-live="polite" id="gLive"></p>
+</div></section>
 
-    <section class="view" id="v-forecast"><h1 class="ws-h1">Forecast</h1><p class="ws-lead">Per-building ridge model, 6 h and 12 h ahead, against two naive baselines. Time-ordered split: trained on data before 18 Sep, scored after.</p><div id="fcBody" class="empty">Loading…</div></section>
+<section id="features" class="sec"><div class="wrap">
+  <h2 class="h2">One grid, five jobs</h2><p class="sub">Each tab is a real module running on the real data. Numbers load from the API.</p>
+  <div class="tabs" id="featTabs" role="tablist"></div><div class="feat" id="featBody"></div>
+</div></section>
 
-    <section class="view" id="v-drill"><h1 class="ws-h1">Outage Drill</h1><p class="ws-lead">Take a building offline using real data as hidden truth. The grid keeps it on screen from visible hours of that day plus a day-type profile built on training days only. Reconnect to see the measured error.</p>
-      <div class="row">Building <select id="dB"></select> Start <input id="dS" value="2026-10-08 10:00" style="width:160px"> Hours <input id="dH" type="number" value="6" min="1" max="12" style="width:64px">
-        <button class="lp-btn lp-btn-outline lp-btn-sm" id="dGo">Take offline</button><button class="lp-btn lp-btn-light lp-btn-sm" id="dRe" disabled>Reconnect &amp; reconcile</button></div>
-      <canvas class="chart" id="dC" width="960" height="280"></canvas><div class="legend" id="dLeg"></div><div id="dBody"></div></section>
+<section id="scale" class="sec"><div class="wrap">
+  <h2 class="h2">The campus, building by building</h2><p class="sub">Eight buildings, sized by their share of grid electricity over 120 days. Rings mark buildings with a composter; the sun marks rooftop solar.</p>
+  <div class="map" id="map"><div class="map-dots" id="mapDots"></div><div class="map-tip" id="mapTip"></div></div>
+  <div class="scale-grid">
+    <div class="card"><h3>From 8 to 30+ buildings</h3><ul class="ul">
+      <li><b>Alias table.</b> The 37 spellings in the logs map to 8 buildings through a table filled once at onboarding. Unmatched names go to a review queue, never silently dropped.</li>
+      <li><b>One small model per building.</b> Ridge fits in tens of milliseconds, so it runs centrally for 30 or on an edge box for 300. New buildings start from the day-type profile until they have about two weeks of data.</li>
+      <li><b>Late-arrival replay.</b> Records order and dedupe by arrival time per gateway. Replay windows are bounded per building (here up to about 12 h).</li>
+      <li><b>Central aggregation.</b> Only Brief rows (cause, kWh, Rs, evidence) leave the building; raw streams stay local.</li></ul></div>
+    <div class="card"><h3>Per-building hardware budget <span class="tag">assumption</span></h3>
+      <table class="t"><tr><td>ESP32 + current clamp / pulse flow meter</td><td>Rs 3,500</td></tr><tr><td>Bin-sensor kit for 2 bins (load cell, moisture, metal, acoustic)</td><td>Rs 3,000</td></tr><tr><td>Raspberry-Pi-class edge box</td><td>Rs 5,000</td></tr><tr><td>Cables and misc.</td><td>Rs 500</td></tr><tr class="sum"><td>Total per building</td><td>Rs 12,000</td></tr></table>
+      <p class="fine">Planning figures, not quotes. No camera: the classifier uses the five sensor features in the dataset.</p></div>
+  </div>
+</div></section>
 
-    <section class="view" id="v-impact"><h1 class="ws-h1">Impact</h1><p class="ws-lead">Computed from the dataset with the data-guide constants. Savings are avoidable-if-caught scenarios, not measured outcomes.</p><div id="imBody" class="empty">Loading…</div></section>
+<section id="developers" class="sec"><div class="wrap">
+  <h2 class="h2">Built to be called</h2><p class="sub">The UI is a client of a small JSON API. These are live responses from this server.</p>
+  <div class="dev"><div class="code"><div class="code-bar" id="devTabs"></div><pre id="devReq"></pre></div><div class="code res"><div class="code-bar"><span id="devStatus">response</span></div><pre id="devRes">…</pre></div></div>
+</div></section>
 
-    <section class="view" id="v-bin"><h1 class="ws-h1">Bin classifier</h1><p class="ws-lead">Small random forest on five bin sensors, evaluated on a stratified hold-out of the labelled file. Runs on CPU in a few milliseconds per event.</p><div id="binBody" class="empty">Loading…</div></section>
-  </main>
-</div>
-<script src="/static/app.js"></script>
+<section id="data" class="sec"><div class="wrap">
+  <h2 class="h2">Seven files, all used</h2><p class="sub">Raw files are never modified. Cleaned outputs are rebuilt on every run.</p>
+  <div class="tabs" id="dataTabs"></div><div class="feat" id="dataBody"></div>
+</div></section>
+
+<section id="constraints" class="sec"><div class="wrap">
+  <h2 class="h2">Against the problem statement</h2><p class="sub">The eight constraints, and where we honestly stand on each.</p>
+  <div class="tbl-wrap"><table class="cmp" id="cmp"></table></div>
+</div></section>
+
+<section class="cta"><div class="cta-dots" aria-hidden="true"></div><div class="wrap cta-in"><h2 class="h2">See your campus as a grid</h2><p class="sub">Open the workspace, connect the sources and read the Brief.</p>
+  <div class="hero-cta" style="justify-content:flex-start"><a class="lp-btn lp-btn-light" href="/app">Open workspace <span class="lp-arrow">→</span></a><a class="lp-btn lp-btn-outline" href="https://github.com/HARDIKSINGH150206/p2p" target="_blank" rel="noopener">View source</a></div></div></section>
+
+<footer class="foot"><div class="wrap foot-in"><span>CircuGrid Brief · Srujana 2026 “Prompt to Product: Prompt for the Planet”</span><span class="lp-mono">Synthetic dataset · figures computed from data · assumptions labelled</span></div></footer>
+<script src="/static/common.js"></script><script src="/static/landing.js"></script>
 </body></html>

@@ -96,9 +96,28 @@ def drill(req: DrillReq):
         raise HTTPException(400, f"{type(e).__name__}: {e}")
 
 
+@app.get("/api/buildings")
+def buildings():
+    import pandas as pd
+    _, _, d = pipeline.load_processed()
+    b = pd.read_excel(pipeline.RAW / "buildings.xlsx")
+    g = d.groupby("building_id").agg(electricity_kwh=("electricity_kwh", "sum"), solar_kwh=("solar_generation_kwh", "sum"),
+                                     wet_organic_kg=("wet_organic_kg", "sum"), composted_kg=("composted_kg", "sum"),
+                                     landfill_kg=("landfill_kg", "sum"), water_litres=("water_litres", "sum")).reset_index()
+    out = b.merge(g, on="building_id")
+    tot = out.electricity_kwh.sum()
+    out["electricity_share_pct"] = (out.electricity_kwh / tot * 100).round(1)
+    return out.round(0).assign(electricity_share_pct=out.electricity_share_pct).to_dict("records")
+
+
 @app.get("/")
 def index():
     return FileResponse(WEB / "index.html")
+
+
+@app.get("/app")
+def workspace():
+    return FileResponse(WEB / "app.html")
 
 
 if WEB.exists():

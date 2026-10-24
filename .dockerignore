@@ -1,0 +1,7 @@
+.venv
+.git
+__pycache__
+data/processed
+Data_cleaning
+docs
+prompts

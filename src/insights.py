@@ -8,7 +8,7 @@ Attribution order: (1) same-building manual note near the episode and compatible
 import numpy as np
 import pandas as pd
 
-from .pipeline import load_processed
+from .pipeline import RAW, load_processed
 from .forecast import run_forecast
 
 CO2_PER_KWH, RS_PER_KWH, KWH_PER_1000L = 0.70, 8.0, 0.85
@@ -128,7 +128,7 @@ def _card(ep, kind, cause, evidence, notes, fc):
 
 def brief(top=12):
     _, m, d = load_processed()
-    cal = pd.read_excel("data/calendar.xlsx")
+    cal = pd.read_excel(RAW / "calendar.xlsx")
     notes = m[m.stream == "note"].copy()
     try:
         fc = run_forecast(include_hgb_timing=False)

@@ -1,14 +1,14 @@
 """P1: baseline-relative building ranking. Shows saved vs OWN baseline per occupant. No behaviour change is measured."""
 import pandas as pd
 
-from .pipeline import load_processed
+from .pipeline import RAW, load_processed
 
 REGIME = {"working": "working", "exam": "exam", "weekend": "weekend", "holiday": "weekend", "semester_break": "break"}
 
 
 def ranking():
     _, _, d = load_processed()
-    cal = pd.read_excel("data/calendar.xlsx")[["date", "day_type"]]
+    cal = pd.read_excel(RAW / "calendar.xlsx")[["date", "day_type"]]
     d = d.merge(cal, on="date", how="left")
     d["regime"] = d.day_type.map(REGIME)
     tr, te = d[d.date < "2026-09-18"], d[d.date >= "2026-09-18"]

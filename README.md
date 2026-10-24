@@ -27,3 +27,16 @@ Raw files live in `data/` (7 xlsx, 20 Jun–17 Oct 2026, 8 buildings, synthetic)
 
 ## Team
 Hardik (ML/backend: forecast, attribution, outage drill, demo) · Jhashank (classifier, impact, API, frontend). Split and branching: docs/TEAM_WORKFLOW.md.
+
+## Deploy
+The app is one process: FastAPI serves the JSON API and the static frontend. `data/processed/` is rebuilt from the raw xlsx on first start, and the slow models are warmed in the background (the first load takes a few seconds).
+- **Docker (any host):** `docker build -t circugrid . && docker run -p 8000:8000 circugrid`
+- **Render:** New Web Service from this repo; `render.yaml` selects the Dockerfile and `/api/health` as the health check.
+- **Railway / Fly / Heroku-style:** the `Procfile` starts `uvicorn src.api:app` on `$PORT`.
+- Needs Python 3.11+ (pinned dependencies target 3.12). No API keys or environment variables are required.
+
+## Deploy
+One process serves the API and the frontend. `data/processed/` is rebuilt from the raw xlsx on first start; models warm in the background (first load takes a few seconds). No keys needed. Python 3.11+.
+- Docker: `docker build -t circugrid . && docker run -p 8000:8000 circugrid`
+- Render: new Web Service from this repo (`render.yaml` uses the Dockerfile, health check `/api/health`).
+- Railway/Fly/Heroku-style: `Procfile` starts uvicorn on `$PORT`.

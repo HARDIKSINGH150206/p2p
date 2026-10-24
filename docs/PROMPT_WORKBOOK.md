@@ -37,6 +37,16 @@ Nothing in this workbook is a projected or invented metric. Where a target was m
 
 **Runtime AI in the shipped product:** classical ML only (ridge regression, random forest, robust-statistics anomaly detection, rule-based attribution). The project plan allowed an optional LLM for wording recommendation text with a template fallback; **that LLM path was not built**, so the product has no external API dependency and needs no key.
 
+## 1a. Public chat share links
+
+The competition asks for verified public share links to the AI chats. They can only be generated from the chat interface by the account owner, so they are **not** reproduced here and none has been invented.
+
+| Session | Tool | Public share link |
+|---|---|---|
+| Main build session (data audit → deployment) | Claude Code | TODO (team): paste the public share link |
+| Ideator subagent, rounds 1–3 | Claude subagent | TODO (team): paste the link, or state that it was part of the main session |
+| Evaluator subagent, rounds 1–3 | Claude subagent | TODO (team): paste the link, or state that it was part of the main session |
+
 ---
 
 ## 2. Prompting strategy

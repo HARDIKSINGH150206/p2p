@@ -1,0 +1,33 @@
+{
+  "hourly.duplicate_pairs_resolved": 184,
+  "hourly.rows_after_dedup": 23008,
+  "profiles.complete_days_used": 766,
+  "grid.total_slots": 23040,
+  "grid.slots_inserted_for_outages": 32,
+  "grid.rows_value_repaired_inplace": 202,
+  "grid.nan_cells_before_repair": 203,
+  "repair.stats": {
+    "anchor_null_days": 3,
+    "profile_filled_slots": 3,
+    "deficit_kwh_redistributed": 3238.16,
+    "deficit_l_redistributed": 76957.0,
+    "solar_deficit_kwh_redistributed": 106.75,
+    "solar_uniform_night_cases": 6
+  },
+  "repair.conflicts_resolved": {
+    "electricity_kwh_days": 240,
+    "water_litres_days": 689,
+    "solar_days": 220
+  },
+  "daily.nulls_imputed": 36,
+  "daily.nulls_after": 0,
+  "manual.unmapped_buildings": [],
+  "manual.rows": 415,
+  "manual.notes_separated": 13,
+  "manual.readings_normalized": 402,
+  "waste.train_nulls_before": 620,
+  "waste.test_nulls_before": 170,
+  "waste.train_nulls_after": 0,
+  "waste.test_nulls_after": 0,
+  "verification.passed": true
+}

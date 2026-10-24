@@ -2,7 +2,7 @@
 An offline-proof campus grid that forecasts spikes, names the cause and ranks the fix.
 Srujana 2026 "Prompt to Product: Prompt for the Planet" — problem: *Predictive Circular-Resource Grid for a Multi-Building Campus* (see `PROBLEM.md`).
 
-> **Status:** idea locked, docs written, build starting. See `docs/PRD.md` for the status of each feature (nothing in the app is built yet).
+> **Status:** backend + ML + rough HTML UI built and runnable; final frontend next. Feature status: `docs/PRD.md`.
 
 ## What it will do
 - **Brief:** fuses hourly meters, daily summaries, calendar and manual logs; forecasts 6–12 h ahead; attributes anomalies to a cause with an evidence line; ranks actions.
@@ -15,7 +15,7 @@ Srujana 2026 "Prompt to Product: Prompt for the Planet" — problem: *Predictive
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 python -m src.pipeline      # build data/processed/
-uvicorn src.api:app --reload   # once phase 4 is merged
+uvicorn src.api:app --reload   # open http://localhost:8000
 ```
 Optional: put `ANTHROPIC_API_KEY` in `.env` for LLM-written brief text. Without it the app uses regex/template fallbacks.
 

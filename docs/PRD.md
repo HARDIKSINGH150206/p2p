@@ -21,13 +21,13 @@ Facilities teams audit buildings by hand, so faults and surges are seen days lat
 | Feature | Description | Priority | Status |
 |---|---|---|---|
 | Data profiling | Shape, nulls, quality issues, insights | P0 | ✅ Built (DATA_NOTES.md) |
-| Fusion + cleaning | Dedupe hourly, reindex to full grid, alias dict (37→8), unit fix, 13-note regex table, outlier/sensor-fault flag | P0 | 📋 Planned |
+| Fusion + cleaning | Dedupe hourly, reindex to full grid, alias dict (37→8), unit fix, 13-note regex table, outlier/sensor-fault flag | P0 | ✅ Built (src/pipeline.py) |
 | Brief: forecast + root cause + actions | Ridge 6 h (and 12 h) forecast vs 2 naive baselines, threshold anomalies, attribution (note → event → day type → weather → unexplained), ranked actions with evidence lines | P0 | ✅ Built, merged (src/forecast.py, src/insights.py) |
 | Forward-looking card | B07 19 Sep held-out forecast vs actual, MAE/WAPE vs naive | P0 | 📋 Planned |
 | Outage Drill | Hide hours, impute from visible hours + day-type profile, replay, error vs baselines | P0 | ✅ Built, merged (src/drill.py) |
-| Impact view | kWh, Rs, CO2, landfill, water from data; assumptions; labelled scenario replay | P0 | 📋 Planned |
-| Edge bin classifier panel | 6 classes, stratified held-out accuracy, ms/event, compost/recycle routing, predictions CSV | P0-lite | 📋 Planned |
-| Incentive ranking | Saved vs own baseline per occupant, "no behaviour change measured" | P1 (first cut) | 📋 Planned |
+| Impact view | kWh, Rs, CO2, landfill, water from data; assumptions; labelled scenario | P0 | ✅ Built (src/impact.py; rough HTML tab) |
+| Edge bin classifier panel | 6 classes, stratified held-out accuracy, ms/event, compost/recycle routing, predictions CSV | P0-lite | ✅ Built (src/classifier.py): hold-out acc 84.96%, CV 84.6% — just under the 85% target |
+| Incentive ranking | Saved vs own baseline per occupant, "no behaviour change measured" | P1 (first cut) | ✅ Built (src/incentive.py) |
 | Sensor-drift check | Rolling residual mean | P1 | 📋 Planned |
 | LLM brief text | Optional Claude call; regex/template fallback | P2 | 📋 Planned |
 

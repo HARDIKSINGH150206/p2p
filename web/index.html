@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>CircuGrid Brief (rough)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+body{font-family:system-ui,sans-serif;margin:0;background:#f5f7f5;color:#1b2a1f}
+header{background:#14532d;color:#fff;padding:12px 20px}
+nav{display:flex;gap:8px;padding:10px 20px;background:#fff;border-bottom:1px solid #ddd;flex-wrap:wrap}
+nav button{padding:6px 12px;border:1px solid #14532d;background:#fff;color:#14532d;border-radius:6px;cursor:pointer}
+nav button.on{background:#14532d;color:#fff}
+main{padding:16px 20px;max-width:1100px;margin:auto}
+section{display:none}section.on{display:block}
+.card{background:#fff;border:1px solid #ddd;border-radius:8px;padding:12px;margin:10px 0}
+.card h3{margin:0 0 6px;font-size:16px}.tag{font-size:12px;padding:2px 6px;border-radius:4px;background:#e5e7eb}
+.tag.high{background:#bbf7d0}.tag.medium{background:#fef08a}.tag.low,.tag.none{background:#fecaca}
+table{border-collapse:collapse;width:100%;background:#fff}td,th{border:1px solid #ddd;padding:4px 8px;text-align:right;font-size:13px}
+th:first-child,td:first-child{text-align:left}
+.kpi{display:flex;gap:12px;flex-wrap:wrap}.kpi div{background:#fff;border:1px solid #ddd;border-radius:8px;padding:10px 14px;min-width:150px}
+.kpi b{font-size:22px;display:block}small{color:#555}canvas{background:#fff;border:1px solid #ddd;width:100%;max-width:900px}
+.warn{background:#fff7ed;border:1px solid #fdba74;padding:8px;border-radius:6px;font-size:13px}
+</style></head><body>
+<header><b>CircuGrid Brief</b> — rough page (final frontend comes later) · every number is computed from the dataset</header>
+<nav id="nav"></nav>
+<main>
+<section id="brief"><div id="briefBody">Loading…</div></section>
+<section id="forecast"><div id="fcBody">Loading…</div></section>
+<section id="drill">
+  <div class="card">Building <select id="dB"></select> Start <input id="dS" value="2026-10-08 10:00"> Hours <input id="dH" type="number" value="6" style="width:50px">
+  <button id="dGo">Take offline</button> <button id="dRe" disabled>Reconnect &amp; reconcile</button></div>
+  <canvas id="dC" width="900" height="260"></canvas><div id="dBody"></div>
+</section>
+<section id="impact"><div id="imBody">Loading…</div></section>
+<section id="bin"><div id="binBody">Loading…</div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id), f=(n,d=0)=>n==null?'–':Number(n).toLocaleString(undefined,{maximumFractionDigits:d});
+const tabs=[['brief','Brief'],['forecast','Forecast'],['drill','Outage Drill'],['impact','Impact'],['bin','Bin classifier']];
+tabs.forEach(([k,t],i)=>{const b=document.createElement('button');b.textContent=t;b.onclick=()=>show(k);b.id='b_'+k;$('nav').append(b)});
+function show(k){tabs.forEach(([x])=>{$(x).classList.toggle('on',x===k);$('b_'+x).classList.toggle('on',x===k)})}
+const j=(u,o)=>fetch(u,o).then(r=>r.json());
+function line(c,series,colors,labels){const x=c.getContext('2d');x.clearRect(0,0,c.width,c.height);
+ const all=series.flat().filter(v=>v!=null);const mx=Math.max(...all),mn=Math.min(...all),n=series[0].length,W=c.width-50,H=c.height-30;
+ x.strokeStyle='#999';x.strokeRect(40,5,W,H);x.fillStyle='#333';x.fillText(f(mx),2,15);x.fillText(f(mn),2,H);
+ series.forEach((s,i)=>{x.strokeStyle=colors[i];x.beginPath();s.forEach((v,k)=>{if(v==null)return;const px=40+W*k/(n-1||1),py=5+H*(1-(v-mn)/((mx-mn)||1));k?x.lineTo(px,py):x.moveTo(px,py)});x.stroke();x.fillStyle=colors[i];x.fillText(labels[i],50+i*140,c.height-5)})}
+j('/api/brief').then(r=>{if(r.error)return $('briefBody').textContent=r.error;
+ $('briefBody').innerHTML=`<p>Attributed episodes: <b>${r.attribution_counts.attributed}</b> · unexplained: <b>${r.attribution_counts.unexplained}</b></p>`+r.cards.map(c=>`<div class="card"><h3>${c.title}</h3>
+ <span class="tag ${c.confidence}">${c.confidence} confidence</span> <span class="tag">${c.cause}</span> <small>${c.date_range[0]} → ${c.date_range[1]}</small>
+ <p><small>Evidence: ${c.evidence}</small></p><p><b>Action:</b> ${c.action}</p>
+ <small>${c.kwh!=null?f(c.kwh)+' kWh · Rs '+f(c.rs)+' · '+f(c.co2_kg)+' kg CO2 ':''}${c.kg!=null?f(c.kg)+' kg ':''}${c.litres!=null?f(c.litres)+' L':''}</small></div>`).join('')});
+j('/api/forecast').then(r=>{if(r.error)return $('fcBody').textContent=r.error;const m=r.metrics;
+ const rows={};m.filter(x=>x.window==='all_test').forEach(x=>{(rows[x.building_id+' '+x.horizon_h+'h']??={})[x.model]=x.wape});
+ const s=r.b07_19sep;
+ $('fcBody').innerHTML=`<p class="warn">Honest read: ridge vs naive baselines, split by time (train before 2026-09-18). Fit time ridge ${r.fit_time_s.ridge}s vs boosting ${r.fit_time_s.hgb}s.</p>
+ <h3>B07 alumni meet, 19 Sep (6 h ahead)</h3><canvas id="fcC" width="900" height="260"></canvas>
+ <p><small>${m.filter(x=>x.window==='alumni_19sep'&&x.building_id==='B07'&&x.horizon_h===6).map(x=>x.model+' WAPE '+x.wape).join(' · ')}</small></p>
+ <h3>WAPE per building (all test days, lower is better)</h3><table><tr><th>building</th><th>ridge</th><th>last week</th><th>yesterday</th></tr>`+
+ Object.entries(rows).map(([k,v])=>`<tr><td>${k}</td><td>${v.ridge}</td><td>${v.naive_same_hour_last_week}</td><td>${v.naive_same_hour_yesterday}</td></tr>`).join('')+'</table>';
+ line($('fcC'),[s.actual,s.forecast,s.naive_week,s.naive_day],['#111','#16a34a','#dc2626','#2563eb'],['actual','ridge','naive week','naive yesterday'])});
+['B01','B02','B03','B04','B05','B06','B07','B08'].forEach(b=>{const o=document.createElement('option');o.value=o.textContent=b;if(b==='B04')o.selected=true;$('dB').append(o)});
+let last;$('dGo').onclick=async()=>{$('dBody').textContent='Running…';
+ const r=await j('/api/drill',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({building_id:$('dB').value,start:$('dS').value,hours:+$('dH').value})});
+ if(r.detail){$('dBody').textContent=r.detail;return}last=r;
+ line($('dC'),[r.hidden.map(h=>h.estimate)],['#d97706'],['OFFLINE: estimated']);$('dBody').innerHTML='<p>Building is offline; showing estimates.</p>';$('dRe').disabled=false};
+$('dRe').onclick=()=>{const r=last;line($('dC'),[r.hidden.map(h=>h.actual),r.hidden.map(h=>h.estimate)],['#111','#d97706'],['actual (replayed)','estimate']);
+ const e=r.errors,b=r.benchmark.mean_errors;const nm={profile_scaled_visible:'Headline: profile scaled to visible hours',flat_visible_mean:'Flat visible mean',same_hours_last_week:'Same hours last week',unscaled_profile:'Unscaled day-type profile',best_case_daily_total:'Best case once daily summary arrives'};
+ $('dBody').innerHTML=`<table><tr><th>method</th><th>MAE kWh (this window)</th><th>MAPE</th><th>MAE avg ${r.benchmark.n_windows} test days</th></tr>`+Object.keys(nm).map(k=>`<tr><td>${nm[k]}</td><td>${e[k].mae}</td><td>${(e[k].mape*100).toFixed(1)}%</td><td>${b[k].mae}</td></tr>`).join('')+'</table>'};
+j('/api/impact').then(r=>{if(r.error)return $('imBody').textContent=r.error;const b=r.baseline;
+ $('imBody').innerHTML=`<div class="kpi"><div><b>${f(b.electricity_kwh)}</b>kWh in ${b.days} days</div><div><b>${f(b.co2_t,1)} t</b>CO2 (0.70 kg/kWh)</div><div><b>Rs ${f(b.cost_rs)}</b>at Rs 8/kWh</div><div><b>${b.solar_share_pct}%</b>solar share</div><div><b>${f(b.composted_kg)} kg</b>composted</div><div><b>${f(b.landfill_kg)} kg</b>landfill</div></div>
+ <p><small>${b.note}</small></p><h3>Attributed events (avoidable if caught)</h3>`+r.events.map(e=>`<div class="card"><h3>${e.title}</h3><small>${e.evidence}<br>${e.kwh!=null?f(e.kwh)+' kWh · Rs '+f(e.rs)+' · '+f(e.co2_kg)+' kg CO2 ':''}${e.kg!=null?f(e.kg)+' kg':''}</small></div>`).join('')+
+ `<p class="warn">Scenario, not a measured outcome. Assumptions: ${JSON.stringify(r.assumptions)}. ${r.excluded}</p><h3>Incentive baseline</h3><div id="inc"></div>`;
+ j('/api/incentive').then(i=>{$('inc').innerHTML='<p class="warn">No behaviour change measured: saved kWh vs each building\'s own baseline, per occupant.</p><table><tr><th>building</th><th>saved kWh</th><th>avg occupancy</th><th>per occupant</th></tr>'+i.map(x=>`<tr><td>${x.building_id}</td><td>${x.saved_kwh_vs_own_baseline}</td><td>${x.avg_occupancy}</td><td>${x.saved_per_occupant}</td></tr>`).join('')+'</table>'})});
+j('/api/classifier').then(r=>{if(r.error)return $('binBody').textContent=r.error;
+ $('binBody').innerHTML=`<div class="kpi"><div><b>${(r.accuracy*100).toFixed(1)}%</b>hold-out accuracy</div><div><b>${r.latency_ms.p50} ms</b>per event (p50)</div><div><b>${r.latency_ms.p95} ms</b>p95</div></div><p><small>${r.evaluated_on}</small></p>
+ <table><tr><th>class</th><th>precision</th><th>recall</th><th>n</th></tr>`+Object.entries(r.per_class).map(([k,v])=>`<tr><td>${k}</td><td>${v.precision}</td><td>${v.recall}</td><td>${v.support}</td></tr>`).join('')+`</table>
+ <h3>Routing of ${r.n_test_predicted} unlabelled test events</h3><p>${Object.entries(r.routing.test_counts).map(([k,v])=>k+': '+v).join(' · ')}<br>Food-organic in composter buildings (${r.routing.compost_eligible_buildings.join(', ')}): <b>${r.routing.food_organic_events_in_composter_buildings}</b> → compost; without composter: <b>${r.routing.food_organic_events_without_composter}</b> → flag.</p>`});
+show('brief');
+</script></body></html>

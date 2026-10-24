@@ -28,3 +28,6 @@ Weak forecast → show seasonal naive as the model, ridge beside it. Drill hard 
 
 ## Per-phase rule
 On merge: update the PRD Status column and CLAUDE.md Project State for your phase.
+
+## Update 12:55
+Team decision: everything is built directly on `main` by Hardik; Jhashank's branches are not merged. Done: 1, 2A, 2B, 3A, 3B, 4 (rough). Remaining: final frontend, demo script/video, report, workbook merge.

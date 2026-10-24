@@ -13,3 +13,9 @@ TODO (team): log prompts here (verbatim-ish, purpose, output).
 - **Real result:** B04 6 h window 10:00 over 30 test days: headline MAE 1.37 kWh (MAPE 4.2%) vs flat-visible-mean 14.2, last-week 4.3, unscaled profile 4.8. The daily-total "best case" was NOT better (1.83) because daily_summary totals do not exactly match hourly sums; label kept, noted.
 - **Dependency note:** drill.py defines TEST_START locally so it does not depend on the unmerged forecast branch.
 - **TODO (team):**
+
+## Phases 3A, 3B, 4 built by Hardik on main (~12:55 IST)
+- **Prompt:** "start building everything and merge directly in main ... we won't merge Jhashank's commits ... finally the frontend".
+- **Produced:** src/classifier.py, src/impact.py, src/incentive.py, src/api.py, web/index.html (rough). Pushed directly to main on the team's decision.
+- **Real results:** classifier hold-out accuracy 84.96% (n=1263, stratified 80/20), 5-fold CV 84.6% (RF/ET/HGB all ~84%, so no tuning on hold-out); p50 latency 4.98 ms/event; 500/408/395/160/72/66 predicted test events by class. Incentive ranking shows B02/B06/B03/B07 above-baseline use; labelled "no behaviour change measured".
+- **TODO (team):** note the 85% target is just missed; decide how to word it in the pitch.

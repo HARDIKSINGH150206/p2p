@@ -40,3 +40,11 @@ TODO (team): log prompts here (verbatim-ish, purpose, output).
 - **Hardening:** HTML-escaping of dataset text, network-error boxes with Retry, skeleton loaders, reduced-motion support, focus outlines, responsive breakpoints, no content hidden by animation.
 - **Known gaps:** B04's share on cards still includes the flagged 6,234 kWh reading (chart shows it at median); not tested by hand-clicking.
 - **TODO (team):**
+
+## Interactive dashboard + landing SaaS sections (~2:40 PM IST)
+- **Prompt:** "make the landing page according to the reference and professional... the dashboard component that is not working make it work ... most sections look hard coded"
+- **Method:** wrote a Chrome DevTools test driver (no Playwright available) and clicked every control: all views, tabs, toggles, tooltips, graph, drill. Result: nothing was throwing errors; the problem was that the dashboard felt hard-coded (every card opened the same page, Forecast/Brief had no selectors).
+- **Produced:** building detail drawer (card/heatmap row/attention item), Forecast explorer for any building x horizon x window via new /api/forecast/{bid}, Brief filters, favicon; landing: live stats strip, 3-step how-it-works, deployment plans (hardware = N x Rs 12,000 assumption, subscription pricing explicitly 'not set'), live-data FAQ, full footer.
+- **Bug found by test:** duplicate element ids (section and inner list both 'plans'/'faq') made the script overwrite the section; fixed by renaming inner ids.
+- **Final checks:** 0 console errors on /app and /.
+- **TODO (team):**

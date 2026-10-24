@@ -1,7 +1,7 @@
 /* Landing page. Needs common.js (graph, helpers). All figures come from the API. */
 window.navTo = (k) => { location.href = '/app#' + k; };
 const DEV = { buildings: null };
-const touch = () => { update(); renderHero(); renderFeat(); renderCmp(); renderData(); };
+const touch = () => { update(); renderHero(); renderFeat(); renderCmp(); renderData(); renderStrip(); renderFaq(); };
 buildGraph(); measure();
 if (location.search.includes('demo')) setTimeout(() => $('gAll').click(), 600);
 
@@ -116,3 +116,36 @@ J('/api/impact').then((r) => { D.impact = r; touch(); });
 J('/api/classifier').then((r) => { D.classifier = r; touch(); });
 J('/api/drill', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' }).then((r) => { D.drillB = r; touch(); });
 renderFeat(); renderData(); renderCmp();
+
+/* ---- live stats strip ---- */
+function renderStrip() {
+  const st = D.stats, br = D.brief, cl = D.classifier, im = D.impact; if (!st || !br || !cl || !im) return;
+  $('strip').innerHTML = [[f(st.hourly_grid_rows), 'hourly readings fused from ' + f(st.hourly_rows_raw) + ' raw rows'], [br.attribution_counts.attributed + ' / ' + br.n_episodes, 'anomalies attributed to a cause'], [(cl.accuracy * 100).toFixed(2) + '%', 'bin classifier hold-out accuracy'], [f(im.baseline.co2_t, 1) + ' t', 'CO2 baseline tracked, 120 days']].map(([a, b]) => `<div class="sti"><b>${a}</b><span>${b}</span></div>`).join('');
+}
+/* ---- how it works ---- */
+$('steps').innerHTML = [
+  ['01 · Connect', 'Fuse what you already log', 'Hourly meters, daily summaries, staff notes, the academic calendar and bin sensors join on building and time. Duplicates, late rows and unit mix-ups are fixed on the way in.', ['Offline buildings stay on the grid', 'Alias table for messy building names', 'Raw files are never modified']],
+  ['02 · Understand', 'Forecast, then explain', 'A small model per building predicts the next 6 to 12 hours. When a day breaks the pattern, the system looks for a note, an event or the weather that explains it, and shows its evidence.', ['Scored against naive baselines', 'Sensor faults are not counted as waste', 'Every card carries an evidence line']],
+  ['03 · Act', 'Rank the fix, count the saving', 'Actions are ranked with kWh, rupees, CO2 and kilograms of waste attached, and labelled as scenarios. Rehearse an outage before it happens.', ['Constants from the data guide', 'Assumptions shown beside every figure', 'No behaviour change is claimed']],
+].map(([n, t, p, u]) => `<div class="step"><span class="n">${n}</span><h3>${t}</h3><p>${p}</p><ul>${u.map((x) => `<li>${x}</li>`).join('')}</ul></div>`).join('');
+/* ---- plans (hardware = buildings x Rs 12,000 planning assumption) ---- */
+const per = 12000, rs = (n) => 'Rs ' + n.toLocaleString('en-IN');
+$('planGrid').innerHTML = [
+  ['Pilot', 'One block, to prove it', 3, 'warm', ['Fusion and Brief for 3 buildings', 'Forecast 6 h and 12 h', 'Outage Drill on recorded data', 'Edge bin classifier on 2 bins per building'], 'Start a pilot', false],
+  ['Campus', 'A whole campus on one grid', 8, 'hot', ['All 8 buildings of this dataset', 'Per-building models and baselines', 'Incentive baseline by occupancy', 'Impact view with assumptions'], 'Open the workspace', true],
+  ['Network', 'Many campuses, one view', 30, 'cool', ['30+ buildings per deployment', 'Alias onboarding with a review queue', 'Central roll-up of Brief rows only', 'Raw streams stay on each edge box'], 'Read the scale plan', false],
+].map(([n, w, b, , li, cta, hot]) => `<div class="plan ${hot ? 'hot' : ''}"><h3>${n}${hot ? ' <span class="ws-chip ws-chip-blue" style="margin-left:6px">this dataset</span>' : ''}</h3><div class="who">${w}</div><div class="big">${rs(b * per)}<small> hardware, ${b} buildings</small></div><p class="fine">= ${b} × ${rs(per)} planning assumption. Subscription pricing: not set.</p><ul>${li.map((x) => `<li>${x}</li>`).join('')}</ul><a class="lp-btn ${hot ? 'lp-btn-light' : 'lp-btn-outline'}" href="${hot ? '/app' : '#scale'}">${cta} <span class="lp-arrow">→</span></a></div>`).join('');
+/* ---- faq ---- */
+function renderFaq() {
+  const cl = D.classifier, fc = D.forecast, n = fc && fc.best_model_6h_all_test ? Object.values(fc.best_model_6h_all_test).filter((m) => m === 'ridge').length : null, acc = cl && cl.accuracy ? (cl.accuracy * 100).toFixed(2) + '%' : 'its measured value', al = fc && fc.metrics ? fc.metrics.filter((x) => x.building_id === 'B07' && x.window === 'alumni_19sep' && x.horizon_h === 6) : [], rg = al.find((x) => x.model === 'ridge'), yd = al.find((x) => x.model === 'naive_same_hour_yesterday');
+  const q = [
+  ['Is this real campus data?', 'No. The dataset is a synthetic benchmark supplied for the hackathon: 8 buildings, 120 days, with deliberately injected faults. Everything shown is computed from it, and results show the method works, not how it will perform in the field.'],
+  ['How accurate is the waste classifier?', `On a stratified hold-out of the labelled file it reaches ${acc}${cl && cl.accuracy < 0.85 ? ', just under' : ', against'} the 85% target in the problem statement. Several model types land at about the same figure, so we report it as it is. The unlabelled test file has no ground truth, so no accuracy is claimed on it.`],
+  ['Does the forecast beat a simple baseline?', `At 6 hours it is the best of the three methods in ${n == null ? '…' : n} of 8 buildings, and not in the other ${n == null ? '…' : 8 - n}. On the alumni-meet day ${rg && yd ? (yd.wape < rg.wape ? 'the “same hour yesterday” baseline won (WAPE ' + yd.wape + ' vs ' + rg.wape + ')' : 'ridge won (WAPE ' + rg.wape + ' vs ' + yd.wape + ')') : 'the result is shown in the Forecast tab'}. The value is a calibrated baseline that makes surges and faults visible and nameable, not a crystal ball.`],
+  ['What if a building goes offline?', 'The Outage Drill rehearses it: hide a window of real hours, estimate them from the visible hours and a profile learned on earlier days, then reconnect and measure the error against naive methods. It runs on recorded data; we have no live buffering hardware.'],
+  ['Does it need an AI API key?', 'No. Forecasting, attribution, the drill and the classifier run locally with scikit-learn. Any language-model text is optional and has a template fallback.'],
+  ['What about privacy?', 'Only aggregates are used: footfall and occupancy counts per building, never individuals. Incentives compare a building with its own baseline so large buildings are not penalised.'],
+];
+  $('faqList').innerHTML = q.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+}
+renderFaq();

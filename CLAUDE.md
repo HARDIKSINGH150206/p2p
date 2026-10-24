@@ -6,8 +6,8 @@
 - Stack (changed): Python, FastAPI backend + plain HTML frontend (final UI later), pandas, scikit-learn; optional Claude API via `.env` with offline fallback.
 - Team: Hardik (phases 2A forecast/attribution, 2B drill, 7 demo) and Jhashank (3A classifier, 3B impact, 4 API + rough HTML, 6 final UI). Parallel, one branch per phase, merge by PR. See docs/TEAM_WORKFLOW.md, docs/PHASES.md, docs/CONTRACTS.md.
 - Key files: `data/*.xlsx` (raw), `docs/ideation/FINAL.md` (locked proposal), `docs/PRD.md`, `docs/PHASES.md`, planned `src/pipeline.py`, `src/models.py`, `src/insights.py`, `app.py`.
-- Built on main: data profiling, docs, src/pipeline.py, src/forecast.py, src/insights.py, src/drill.py, src/classifier.py (hold-out acc 84.96%), src/impact.py, src/incentive.py, src/api.py (FastAPI), web/index.html (rough UI). Teammate PR #1 `Data_cleaning/` merged but separate from src/pipeline.py. Jhashank's commits are NOT being merged (team decision); we build everything on main.
-- Next: final frontend, DEMO_SCRIPT.md, 3-page report, workbook merge. Run: `python -m src.pipeline && uvicorn src.api:app`.
+- Built on main: data profiling, docs, src/pipeline.py, src/forecast.py, src/insights.py, src/drill.py, src/classifier.py (hold-out acc 84.96%), src/impact.py, src/incentive.py, src/api.py (FastAPI), web/index.html + web/style.css + web/app.js (final dark UI ported from DigiVault-BFB: sidebar shell + draggable wired-card graph; `?demo=1` auto-connects the graph for recording). Teammate PR #1 `Data_cleaning/` merged but separate from src/pipeline.py. Jhashank's commits are NOT being merged (team decision); we build everything on main.
+- Next: DEMO_SCRIPT.md, 3-page report, workbook merge. Run: `python -m src.pipeline && uvicorn src.api:app`.
 - Blockers: none; build is already tight against the 1:15 freeze, use cut lines.
 
 ## Docs Index

@@ -19,3 +19,10 @@ TODO (team): log prompts here (verbatim-ish, purpose, output).
 - **Produced:** src/classifier.py, src/impact.py, src/incentive.py, src/api.py, web/index.html (rough). Pushed directly to main on the team's decision.
 - **Real results:** classifier hold-out accuracy 84.96% (n=1263, stratified 80/20), 5-fold CV 84.6% (RF/ET/HGB all ~84%, so no tuning on hold-out); p50 latency 4.98 ms/event; 500/408/395/160/72/66 predicted test events by class. Incentive ranking shows B02/B06/B03/B07 above-baseline use; labelled "no behaviour change measured".
 - **TODO (team):** note the 85% target is just missed; decide how to word it in the pitch.
+
+## Final frontend (~1:20 PM IST)
+- **Prompt:** "we will be using the same frontend that we used in DigiVault-BFB" (+ earlier: node diagram similar).
+- **Purpose:** Port DigiVault-BFB's dark theme, workspace shell and the draggable wired-card custody graph to a no-build vanilla HTML/CSS/JS frontend served by FastAPI.
+- **Produced:** web/index.html, style.css, app.js. Graph: 5 sources -> fused hub -> 6 output cards with live numbers from our API; views for Brief, Forecast, Drill, Impact, Bin. Verified in headless Chrome: no console errors after fixing one syntax slip (a shell-expanded dollar-paren in a line I appended).
+- **Honesty fix:** accuracy shown to 2 decimals (84.96%) because 1 decimal rounds to 85.0% and would imply the target was met.
+- **TODO (team):**

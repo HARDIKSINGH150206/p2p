@@ -3,17 +3,15 @@
 ## Project State
 - **Chosen product (idea locked): CircuGrid Brief** — an offline-proof campus grid that forecasts spikes, names the cause, ranks the fix. (Ideation v3, evaluator score 8.3/10, see docs/ideation/FINAL.md.)
 - **Status: idea locked, awaiting GO.** (Older bullets below describing Concept A are superseded by this.)
-- Product: Predictive Circular-Resource Grid (Concept A, assumed picked) — campus energy/water/waste fusion, bin classifier, 6–12 h forecast, root-cause actions, impact + leaderboard.
 - Stack: Python, Streamlit, pandas, plotly, scikit-learn; optional Claude API via `.env` with offline fallback.
-- Key files: `data/*.xlsx` (raw), `docs/DATA_NOTES.md`, `docs/PRD.md`, `app.py` (not yet created).
-- Built: data profiling, venv + deps, docs. No app code yet.
-- Next: cleaning pipeline → dashboard shell → classifier → forecast → root-cause → impact.
-- Blockers: Phase 1 pick not explicitly confirmed (assumed A); git was not initialised before this commit.
+- Key files: `data/*.xlsx` (raw), `docs/ideation/FINAL.md` (locked proposal), `docs/PRD.md`, `docs/PHASES.md`, planned `src/pipeline.py`, `src/models.py`, `src/insights.py`, `app.py`.
+- Built: data profiling, docs, README, requirements.txt, venv. No app code yet.
+- Next: phase 3a fusion/cleaning → 3b forecast → 3c Streamlit + Impact → 3d Drill → 3e classifier (see docs/PHASES.md).
+- Blockers: none; build is already tight against the 1:15 freeze, use cut lines.
 
 ## Docs Index
-- [PRD](docs/PRD.md) · [Development](docs/DEVELOPMENT.md) · [Architecture & Dataflow](docs/ARCHITECTURE_AND_DATAFLOW.md) · [Problem & Novelty](docs/PROBLEM_AND_NOVELTY.md)
-- [Data notes](docs/DATA_NOTES.md) · [Prompt workbook](docs/PROMPT_WORKBOOK.md) · [Demo script](docs/DEMO_SCRIPT.md) (not yet written)
-- [Problem statement](docs/PROBLEM_STATEMENT_AND_CONSTRAINTS.md) · [Data guide](docs/README_data_guide.md)
+- [PRD](docs/PRD.md) · [Phases](docs/PHASES.md) · [Development](docs/DEVELOPMENT.md) · [Architecture & Dataflow](docs/ARCHITECTURE_AND_DATAFLOW.md) · [Problem & Novelty](docs/PROBLEM_AND_NOVELTY.md)
+- [Data notes](docs/DATA_NOTES.md) · [Prompt workbook](docs/PROMPT_WORKBOOK.md) · [Ideation FINAL](docs/ideation/FINAL.md) · [Demo script](docs/DEMO_SCRIPT.md) (not yet written)
 
 **Rule:** After any feature change, update the Status column in PRD.md and the Project State section here.
 

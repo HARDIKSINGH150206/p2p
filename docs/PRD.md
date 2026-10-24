@@ -1,59 +1,49 @@
-# PRD — Predictive Circular-Resource Grid
-One-line: an AI control room that fuses campus energy, water and waste data, forecasts spikes, explains anomalies and nudges occupants to cut waste.
-Last updated: 11:30 IST
-> Assumption: we are building Concept A (recommended in Phase 1). Nothing is coded yet, so features are 📋 Planned unless stated.
+# PRD — CircuGrid Brief
+One-line: an offline-proof campus grid that forecasts spikes, names the cause and ranks the fix, built on the 8-building campus dataset.
+Last updated: 12:15 IST
+Source of truth for scope: `docs/ideation/FINAL.md` (v3, evaluator 8.3/10, not formally approved). Status = actual code state: nothing is built yet.
 
 ## Problem
-Campus facilities rely on manual per-building audits that lag by days, cannot forecast spikes (exams, events, mess rush) and cannot say *why* usage rose (problem statement). Data is noisy: 184 duplicate hourly rows, late arrivals, nulls, 37 spellings of 8 buildings in manual logs.
+Facilities teams audit buildings by hand, so faults and surges are seen days late and nobody links staff notes to meter data (problem statement). Real examples in the data: B04 solar was 0 kWh on 6–8 Oct while a staff note said "inverter showing red error light"; B05's composter was down 7–13 Sep (composted_kg = 0) and nobody noticed.
 
 ## Personas
 | Persona | Pain |
 |---|---|
-| Facilities manager | Finds out about leaks/faults days late; no ranked list of what to fix |
-| Hostel warden / mess supervisor | Wet waste and energy spike with no warning; logs are manual and inconsistent |
-| Student / building occupant | No visibility of own building's footprint, no reason to change habits |
+| Facilities engineer (assumption: 1–2 people for 8 buildings) | Walk-through audits; evidence scattered across meters, notes, 37 building spellings |
+| Hostel warden / mess supervisor | Surges (e.g. B07 alumni meet, 19 Sep) and composter failures appear after the fact |
+| Sustainability / campus admin | Needs numbers (kWh, Rs, CO2, landfill) with stated assumptions |
 
 ## Goals / Non-goals
-- Goals: working end-to-end app on the real dataset covering the 8 problem-statement constraints at prototype level.
-- Non-goals (4 h): real edge hardware deployment, real camera/computer vision, live sensors, user accounts, mobile app, proven behaviour change.
+- Goals: working Streamlit app on the real data covering the problem statement's constraints at prototype level; every number computed from data.
+- Non-goals (this build): real edge hardware or camera frames, live feeds, accounts, measured behaviour change, large model search.
 
 ## Features
 | Feature | Description | Priority | Status |
 |---|---|---|---|
-| Data profiling | Shape, nulls, quality issues, insights | P0 | ✅ Built (docs/DATA_NOTES.md) |
-| Data cleaning + fusion | Dedup hourly, handle late data, normalise manual-log names/units, fill gaps, keep offline buildings | P0 | 📋 Planned |
-| Live Grid dashboard | Campus + per-building energy/water/solar/footfall, offline/buffered status | P0 | 📋 Planned |
-| Smart-bin classifier | 6-class model on 5 sensor features, held-out accuracy, confusion matrix, ms/event | P0 | 📋 Planned |
-| Forecast | 6–12 h ahead per building vs naive baseline, with MAE | P0 | 📋 Planned |
-| Root-cause + actions | Anomaly flags matched to manual notes/calendar, ranked explainable recommendations | P1 | 📋 Planned |
-| Impact view | CO2, Rs, water-energy, compost computed from data, assumptions shown | P0 | 📋 Planned |
-| Incentive leaderboard | Building score from diversion/contamination/usage vs baseline | P1 | 📋 Planned |
-| LLM recommendation text | Optional, template fallback offline | P2 | 📋 Planned |
-| Test predictions CSV | `waste_events_test_predictions.csv` (event_id, predicted_class) | P1 | 📋 Planned |
+| Data profiling | Shape, nulls, quality issues, insights | P0 | ✅ Built (DATA_NOTES.md) |
+| Fusion + cleaning | Dedupe hourly, reindex to full grid, alias dict (37→8), unit fix, 13-note regex table, outlier/sensor-fault flag | P0 | 📋 Planned |
+| Brief: forecast + root cause + actions | Ridge 6 h (and 12 h) forecast vs 2 naive baselines, threshold anomalies, attribution (note → event → day type → weather → unexplained), ranked actions with evidence lines | P0 | 📋 Planned |
+| Forward-looking card | B07 19 Sep held-out forecast vs actual, MAE/WAPE vs naive | P0 | 📋 Planned |
+| Outage Drill | Hide hours, impute from visible hours + day-type profile, replay, error vs baselines | P0 | 📋 Planned |
+| Impact view | kWh, Rs, CO2, landfill, water from data; assumptions; labelled scenario replay | P0 | 📋 Planned |
+| Edge bin classifier panel | 6 classes, stratified held-out accuracy, ms/event, compost/recycle routing, predictions CSV | P0-lite | 📋 Planned |
+| Incentive ranking | Saved vs own baseline per occupant, "no behaviour change measured" | P1 (first cut) | 📋 Planned |
+| Sensor-drift check | Rolling residual mean | P1 | 📋 Planned |
+| LLM brief text | Optional Claude call; regex/template fallback | P2 | 📋 Planned |
 
 ## User flow
-1. Open app (`streamlit run app.py`); see campus KPIs on top.
-2. Pick building / date range in sidebar.
-3. Review Live Grid, including any building flagged offline.
-4. Open Forecast to see next 6–12 h demand and baseline comparison.
-5. Open Root-Cause to see flagged anomalies with probable cause and ranked actions.
-6. Open Smart Bin to see classifier accuracy and classify sample events.
-7. Open Impact/Incentives to see savings and the building leaderboard.
+1. Open app: Brief shows B04 inverter and B05 composter cards within 20 s.
+2. Click B07 19 Sep card: forecast vs actual, calendar-event cause, MAE/WAPE vs naive.
+3. Outage Drill: pick building + 6 h window → "offline, estimated" → Reconnect → error vs baselines.
+4. Impact: kWh, Rs, CO2, landfill; scenario label.
+5. Bin panel: accuracy, ms/event, routing.
 
-## Success metrics (measurable)
-- Classifier accuracy on held-out split of train file (target >85% per problem statement; actual TBD).
-- Forecast MAE vs naive baseline on held-out last days (TBD).
-- Per-event inference time in ms (TBD).
-- Share of records recovered by cleaning (rows deduped, names resolved) — computed by pipeline.
-- Anomalies matched to a manual note or calendar event (count, TBD).
+## Success metrics (measured in app)
+- Classifier held-out accuracy (target >85% from problem statement; actual TBD).
+- Forecast MAE/WAPE vs naive per building (TBD).
+- Drill MAE/MAPE vs baselines (TBD).
+- Flags attributed vs "unexplained" (TBD).
+- Rows deduped, aliases resolved (from pipeline).
 
 ## Sustainability impact
-Computed from `daily_summary` with data-guide constants (0.70 kg CO2/kWh, Rs 8/kWh, 0.85 kWh/1000 L, 4:1 compost). Baselines from data:
-| Item | Value | How |
-|---|---|---|
-| Grid electricity, 120 days | 750,969 kWh | sum of electricity_kwh (nulls excluded) |
-| Implied CO2 / cost | 525.7 t / Rs 6.0 M | kWh × 0.70 / × 8 |
-| Solar generated | 109,417 kWh (14.6%) | sum of solar_generation_kwh; ≈76.6 t CO2 avoided |
-| Composted | 69,898 kg → ≈17,475 kg compost | composted_kg / 4 |
-| Landfill | 35,339 kg | sum of landfill_kg |
-Savings from our recommendations are 📋 Planned and will be shown as scenarios ("Estimate (assumption: X% reduction)"), not claimed results.
+Formulas (guide constants: 0.70 kg CO2/kWh, Rs 8/kWh, 0.85 kWh/1000 L, compost 4:1) applied to real events, computed live: excess B05 landfill 7–13 Sep; lost B04 solar 6–8 Oct; B06 excess water 5–10 Aug. Campus baseline from data: 750,969 kWh (≈525.7 t CO2, Rs 6.0 M); solar 109,417 kWh (14.6%); composted 69,898 kg. Savings are "avoidable if caught" and scenarios, with a recovery-share slider (assumption).
